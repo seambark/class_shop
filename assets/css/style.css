@@ -1,1 +1,73 @@
 @import url("common.css");
+
+.skipNav {
+  display: none;
+}
+.header {
+  height: 80px;
+  padding: 18px 147px 18px 20px;
+}
+.header .logo {
+  display: inline-block;
+  vertical-align: top;
+}
+.header .logo a {
+  color: black;
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1em;
+  vertical-align: top;
+}
+.header .serch {
+  display: inline-block;
+  position: relative;
+}
+.header .serch .serchInput {
+  width: 380px;
+  padding: 0 45px 0 10px;
+  font-size: 1rem;
+  line-height: 40px;
+}
+.header .serch button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 100%;
+  padding: 10px;
+  background-color: transparent;
+  font-size: 1.2rem;
+}
+.header .serch button span {
+  width: 0;
+  height: 0;
+  font-size: 0;
+  text-indent: -99999px;
+  line-height: 0;
+}
+.header .serch .searchTag {
+  position: absolute;
+  bottom: -35px;
+  left: 0;
+  width: 500px;
+}
+.header .serch .searchTag li {
+  display: inline-block;
+  vertical-align: top;
+}
+.header .serch .searchTag li a {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: #e6e6e6;
+  font-size: 0.7rem;
+}
+.header .loginBox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 30px 20px;
+}
+.header .loginBox a {
+  padding: 0 2px;
+}
