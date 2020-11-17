@@ -1,15 +1,24 @@
 @import url("common.css");
 
+.wrap {
+  min-width: 360px;
+}
 .skipNav {
   display: none;
 }
+.headerArea {
+  padding-bottom: 10px;
+}
 .header {
+  position: relative;
   height: 80px;
-  padding: 18px 147px 18px 20px;
+  padding: 18px 20px;
+  text-align: right;
 }
 .header .logo {
-  display: inline-block;
-  vertical-align: top;
+  position: absolute;
+  left: 20px;
+  top: 18px;
 }
 .header .logo a {
   color: black;
@@ -21,17 +30,16 @@
 .header .serch {
   display: inline-block;
   position: relative;
+  text-align: right;
 }
 .header .serch .serchInput {
-  width: 380px;
+  display: none;
+  width: 100%;
   padding: 0 45px 0 10px;
   font-size: 1rem;
   line-height: 40px;
 }
 .header .serch button {
-  position: absolute;
-  top: 0;
-  right: 0;
   width: 45px;
   height: 100%;
   padding: 10px;
@@ -46,6 +54,7 @@
   line-height: 0;
 }
 .header .serch .searchTag {
+  display: none;
   position: absolute;
   bottom: -35px;
   left: 0;
@@ -63,11 +72,217 @@
   font-size: 0.7rem;
 }
 .header .loginBox {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 30px 20px;
+  display: inline-block;
 }
 .header .loginBox a {
   padding: 0 2px;
+}
+.gnb {
+  position: relative;
+  overflow: hidden;
+  padding: 0 0 0 40px;
+}
+.gnb .gnbAll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  font-size: 1.05rem;
+  line-height: 40px;
+}
+.gnb ul {
+  white-space: nowrap;
+  overflow-y: auto;
+}
+.gnb ul li {
+  display: inline-block;
+  vertical-align: top;
+}
+.gnb ul li a {
+  display: block;
+  padding: 10px;
+}
+.gnb ul li {
+}
+.content {
+  padding: 20px;
+}
+.mainSlide {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.mainSlide ul {
+  /* width: 9999px; */
+  white-space: nowrap;
+  font-size: 0;
+}
+.mainSlide ul li {
+  display: inline-block;
+  width: 100%;
+  padding: 40px 20px 60px;
+  background-color: #80a2f0;
+  vertical-align: top;
+}
+.mainSlide ul li a {
+  display: block;
+  width: 100%;
+}
+.mainSlide .slideImg {
+  position: relative;
+  width: 455px;
+  height: 455px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 2px 5px 27px rgba(0, 0, 0, 0.4);
+}
+.mainSlide .slideImg img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: initial;
+  height: 100%;
+}
+.mainSlide .slideImg .tag {
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  min-width: 50px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: #fff;
+  font-size: 0.8rem;
+}
+.mainSlide .slideTex {
+  margin: 60px 0 20px;
+  font-size: 1rem;
+}
+.mainSlide .slideTex:hover {
+  text-decoration: underline;
+}
+.mainSlide .slideTex dt {
+  font-size: 1.5rem;
+}
+.mainSlide .slideTex dd {
+  margin-top: 10px;
+}
+.mainSlide .controlSlide {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 0 110px 0 80px;
+}
+.mainSlide .controlSlide .paging {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  font-size: 1.1rem;
+  line-height: 40px;
+}
+.mainSlide .controlSlide .paging .now {
+  font-weight: 700;
+}
+.mainSlide .controlSlide .timeBar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.mainSlide .controlSlide .timeBar::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #bcbcbf;
+}
+.mainSlide .controlSlide .timeBar .time {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30%;
+  height: 3px;
+  border-radius: 3px;
+  background-color: lavender;
+}
+.mainSlide .controlSlide .btnSlide {
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+.mainSlide .controlSlide .btnSlide button {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  font-size: 1.6rem;
+}
+.titArea {
+  margin-bottom: 30px;
+}
+.titArea .tit {
+  font-size: 1.6rem;
+}
+.titArea p {
+  margin-top: 15px;
+}
+.productList {
+}
+.productList ul li:first-child {
+  margin-top: 0;
+}
+.productList ul li {
+  margin-top: 20px;
+}
+.productList .item button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+}
+.productList .item .type {
+  font-size: 0.8rem;
+}
+
+@media all and (min-width: 1000px) {
+  .header {
+    padding-right: 147px;
+    text-align: left;
+  }
+  .header .logo {
+    display: inline-block;
+    position: inherit;
+    top: inherit;
+    left: inherit;
+    vertical-align: top;
+  }
+  .header .serch {
+    display: inline-block;
+    margin-left: 15px;
+  }
+  .header .serch .serchInput {
+    display: block;
+    width: 380px;
+  }
+  .header .serch button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .header .loginBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 30px 20px;
+  }
 }
