@@ -88,7 +88,6 @@
   left: 0;
   width: 40px;
   height: 40px;
-  background-color: transparent;
   font-size: 1.05rem;
   line-height: 40px;
 }
@@ -109,13 +108,63 @@
 .content {
   padding: 20px;
 }
+footer {
+  padding: 20px;
+  border-top: 1px solid #d6d6d6;
+}
+footer .infoMenu {
+  position: relative;
+}
+footer .infoMenu nav > ul > li:first-child {
+  margin-top: 0;
+}
+footer .infoMenu nav > ul > li {
+  margin-top: 10px;
+}
+footer .infoMenu .tit {
+  position: relative;
+}
+footer .infoMenu li a {
+  color: #858a8d;
+  font-size: 0.9rem;
+}
+footer .infoMenu .tit span {
+  color: #858a8d;
+  font-size: 0.8rem;
+}
+footer .companyInfo {
+  margin-top: 20px;
+  color: #858a8d;
+  font-size: 0.8rem;
+}
+footer .companyInfo .snsList {
+  margin-top: 18px;
+}
+footer .companyInfo .snsList li {
+  display: inline-block;
+  vertical-align: top;
+}
+footer .companyInfo .snsList a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 30px;
+  text-align: center;
+}
+footer .companyInfo .snsList .instagram {
+  font-size: 1.1rem;
+}
+
 .mainSlide {
   position: relative;
   overflow: hidden;
   width: 100%;
 }
 .mainSlide ul {
-  /* width: 9999px; */
   white-space: nowrap;
   font-size: 0;
 }
@@ -123,7 +172,7 @@
   display: inline-block;
   width: 100%;
   padding: 40px 20px 60px;
-  background-color: #80a2f0;
+  background-color: #6e8dd0;
   vertical-align: top;
 }
 .mainSlide ul li a {
@@ -225,7 +274,6 @@
 .mainSlide .controlSlide .btnSlide button {
   width: 40px;
   height: 40px;
-  background-color: transparent;
   font-size: 1.6rem;
 }
 .titArea {
@@ -237,21 +285,139 @@
 .titArea p {
   margin-top: 15px;
 }
-.productList {
-}
 .productList ul li:first-child {
   margin-top: 0;
 }
 .productList ul li {
   margin-top: 20px;
 }
-.productList .item button {
+.productList .item {
+  position: relative;
+}
+.productList .item .btn {
   width: 100%;
   margin-top: 15px;
   padding: 10px;
+  border-radius: 3px;
+  background-color: #6e8dd0;
+  color: #fff;
 }
-.productList .item .type {
+.productList .item .info {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+.productList .item .info span:first-child {
+  padding-left: 0;
+}
+.productList .item .info .infoProfile {
+  position: relative;
+  padding-left: 6px;
+}
+.productList .item .info .infoProfile span {
+  display: inline-block;
+  vertical-align: top;
+}
+.productList .item .info .infoProfile::before {
+  content: "선생님 ";
+  overflow: hidden;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 2px;
+  background-color: #000;
+}
+.productList .item .tit {
+  margin-top: 5px;
+  color: #1b1c1d;
+}
+.productList .item .tag {
+  margin-top: 5px;
+}
+.productList .item .tag span {
+  height: 20px;
+  padding: 0 6px;
+  background-color: #f1f1f1;
+  color: #858a8d;
+  font-weight: 600;
+  font-size: 0.7rem;
+  line-height: 20px;
+}
+.productList .item .price {
+  margin-top: 10px;
+}
+.productList .item .price span::before,
+.productList .item .price strong::before {
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+}
+.productList .item .price .priceOriginal {
+  font-weight: 700;
+}
+.productList .item .price .priceOriginal::before {
+  content: "정상가 ";
+}
+.productList .item .price .priceOriginal:not(:only-child) {
+  color: #858a8d;
+  font-weight: 500;
+  font-size: 0.7rem;
+  text-decoration: line-through;
+}
+.productList .item .price .pricePercent {
+  color: #f33340;
+  font-size: 0.7rem;
+}
+.productList .item .price .pricePercent::before {
+  content: "할인율 ";
+}
+.productList .item .price .priceDiscount {
+  display: block;
+  font-weight: 700;
+}
+.productList .item .price .priceDiscount::before {
+  content: "판매가 ";
+}
+.productList .item .price .pricePercent span,
+.productList .item .price .priceDiscount span {
+  color: #1b1c1d;
+  font-weight: 500;
   font-size: 0.8rem;
+}
+.productList .item .btnLike {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.6rem;
+  color: #fff;
+}
+.productList .item .btnLike.on {
+  color: #f33340;
+}
+.productList .item .btnLike.on i {
+  font-weight: 900;
+}
+.btnMore,
+.btnTalk {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #6e8dd0;
+  border-radius: 3px;
+  color: #6e8dd0;
+  text-align: center;
+}
+footer .infoMenu {
+}
+footer .infoMenu nav {
 }
 
 @media all and (min-width: 1000px) {
