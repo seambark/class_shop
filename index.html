@@ -50,7 +50,8 @@
         </div>
       </div>
       <nav class="gnb">
-        <button type="button">전체메뉴</button>
+        <button type="button" class="gnbAll" aria-label="메뉴 전체보기" title="메뉴 전체보기"><i class="fas fa-bars"
+            aria-hidden="true"></i></button>
         <ul>
           <li><a href="#">크리에이티브</a></li>
           <li><a href="#">머니</a></li>
@@ -62,47 +63,67 @@
         </ul>
       </nav>
     </header>
-    <div class="content">
-      <div class="mainSlide">
-        <ul>
-          <li>
-            <a href="#">
-              <div>
-                <img src="" alt="">
-                <span class="tag">25% 할인</span>
-              </div>
+    <div class="mainSlide">
+      <ul>
+        <li>
+          <a href="#">
+            <div class="slideImg">
+              <img src="./assets/images/main/yoga_slide.jpg" alt="요가">
+              <span class="tag">25% 할인</span>
+            </div>
+            <div class="slideTex">
               <dl>
                 <dt>화제의 운동 클래스</dt>
-                <dd><a href="#"></a>천명이 선택한 화제의 클래스</dd>
+                <dd>천명이 선택한 화제의 클래스</dd>
               </dl>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div>
-                <img src="" alt="">
-                <span class="tag">70,000원 할인</span>
-              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="slideImg">
+              <img src="./assets/images/main/doughnut_slide.jpg" alt="도넛 베이킹">
+              <span class="tag">70,000원 할인</span>
+            </div>
+            <div class="slideTex">
               <dl>
-                <dt>가죽 공예 클래스</dt>
-                <dd><a href="#"></a>나만의 악세사리를 만들어 보세요</dd>
+                <dt>달달하고 귀여운 나만의 도넛 만들기</dt>
+                <dd>도넛 전문가에게 배우는 달콤한 시간!</dd>
               </dl>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div>
-                <img src="" alt="">
-                <span class="tag">70,000원 할인</span>
-              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="slideImg">
+              <img src="./assets/images/main/illustration_slide.jpg" alt="">
+              <span class="tag">70,000원 할인</span>
+            </div>
+            <div class="slideTex">
               <dl>
                 <dt>프로에게 배우는 일러스트 시작과 끝</dt>
-                <dd><a href="#"></a>프로의 기술을 배우세요</dd>
+                <dd>프로의 기술을 배우세요</dd>
               </dl>
-            </a>
-          </li>
-        </ul>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="controlSlide">
+        <div class="paging">
+          <span class="now">01</span>/<span class="all">03</span>
+        </div>
+        <div class="timeBar">
+          <span class="time" aria-hidden="true"></span>
+        </div>
+        <div class="btnSlide">
+          <button type="button" class="btnPrev" aria-label="이전으로 가기" title="이전으로 가기"><i class="fas fa-angle-left"
+              aria-hidden="true"></i></button>
+          <button type="button" class="btnNext" aria-label="다음으로 가기" title="다음으로 가기"><i class="fas fa-angle-right"
+              aria-hidden="true"></i></button>
+        </div>
       </div>
+    </div>
+    <div class="content" role="main">
       <section>
         <div class="titArea">
           <h2 class="tit">신규 클래스</h2>
@@ -111,23 +132,64 @@
         <div class="productList">
           <ul>
             <li>
-              <a href="#" class="item">
-                <img src="" alt="">
-                <span class="type">공예</span>
-                <h3>제목</h3>
-                <p>강사정보</p>
-                <p><span>가격</span><span>할인가격</span><span>할인가격</span></p>
-                <span>태그</span>
-                <button type="button">오픈알림 신청</button>
-              </a>
+              <div class="item">
+                <a href="#">
+                  <div class="img">
+                    <img src="./assets/images/class/yoga.jpg" alt="요가">
+                  </div>
+                  <div class="info">
+                    <span class="infoType">운동</span>
+                    <span class="infoProfile">로빈</span>
+                  </div>
+                  <h3 class="tit">하루 10분, 요가로 찾은 내 몸의 선</h3>
+                  <p class="price">
+                    <strong class="priceOriginal">269,000원</strong>
+                    <span class="pricePercent">61%</span>
+                    <span class="priceDiscount">월 209,000원<span>(5개월)</span></span>
+                  </p>
+                  <div class="tag">
+                    <span>바로 수강 가능</span>
+                  </div>
+                </a>
+                <button type="button" class="btnLike on" aria-label="좋아요 되어 있음, 좋아요 해제하기" title="좋아요 해제하기"><i
+                    class="far fa-heart" aria-hidden="true"></i></button>
+                <button type="button" class="btn">오픈알림 신청</button>
+              </div>
             </li>
             <li>
               <div class="item">
-                <img src="" alt="">
-                <span class="type">공예</span>
-                <h3>제목</h3>
-                <p>강사정보</p>
-                <button type="button">오픈알림 신청</button>
+                <a href="#">
+                  <div class="img">
+                    <img src="./assets/images/class/calligraphy.jpg" alt="캘리그라피">
+                  </div>
+                  <div class="info">
+                    <span class="infoType">미술</span>
+                    <span class="infoProfile">따부</span>
+                  </div>
+                  <h3 class="tit">사각사각 아날로그 감성, 펜글씨에서 펜캘리그라피까지</h3>
+                  <p class="price">
+                    <strong class="priceOriginal">149,000원</strong>
+                  </p>
+                </a>
+                <button type="button" class="btnLike" aria-label="좋아요 체크하기" title="좋아요 체크하기"><i class="far fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="btn">오픈알림 신청</button>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="#">
+                  <div class="img">
+                    <img src="./assets/images/class/flower.jpg" alt="꽃다발">
+                  </div>
+                  <div class="info">
+                    <span class="infoType">공예</span>
+                    <span class="infoProfile">김지안</span>
+                  </div>
+                  <h3 class="tit">내 손으로 피워내는 한다발의 꽃</h3>
+                </a>
+                <button type="button" class="btnLike" aria-label="좋아요 체크하기" title="좋아요 체크하기"><i class="far fa-heart"
+                    aria-hidden="true"></i></button>
               </div>
             </li>
           </ul>
@@ -136,61 +198,117 @@
       </section>
       <section>
         <div class="titArea">
-          <h2 class="tit">추천 클래스</h2>
+          <h2 class="tit">오픈 예정 클래스</h2>
+          <p>오픈 예정인 클래스를 응원하면 얼리버드 오픈 시 알려드려요!</p>
         </div>
-        <div class="productList slide">
-          <button type="button">앞으가기</button>
-          <button type="button">뒤로가기</button>
+        <div class="productList leftList">
+          <ul>
+            <li>
+              <div class="item">
+                <a href="#">
+                  <div class="img">
+                    <img src="./assets/images/class/yoga.jpg" alt="요가">
+                  </div>
+                  <div class="info">
+                    <span class="infoType">운동</span>
+                    <span class="infoProfile">로빈</span>
+                  </div>
+                  <h3 class="tit">하루 10분, 요가로 찾은 내 몸의 선</h3>
+                  <p class="price">
+                    <strong class="priceOriginal">269,000원</strong>
+                    <span class="pricePercent">61%</span>
+                    <span class="priceDiscount">월 209,000원<span>(5개월)</span></span>
+                  </p>
+                  <div class="tag">
+                    <span>바로 수강 가능</span>
+                  </div>
+                </a>
+                <button type="button" class="btnLike on" aria-label="좋아요 되어 있음, 좋아요 해제하기" title="좋아요 해제하기"><i
+                    class="far fa-heart" aria-hidden="true"></i></button>
+                <button type="button" class="btn">오픈알림 신청</button>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="#">
+                  <div class="img">
+                    <img src="./assets/images/class/calligraphy.jpg" alt="캘리그라피">
+                  </div>
+                  <div class="info">
+                    <span class="infoType">미술</span>
+                    <span class="infoProfile">따부</span>
+                  </div>
+                  <h3 class="tit">사각사각 아날로그 감성, 펜글씨에서 펜캘리그라피까지</h3>
+                  <p class="price">
+                    <strong class="priceOriginal">149,000원</strong>
+                  </p>
+                </a>
+                <button type="button" class="btnLike" aria-label="좋아요 체크하기" title="좋아요 체크하기"><i class="far fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="btn">오픈알림 신청</button>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="#">
+                  <div class="img">
+                    <img src="./assets/images/class/flower.jpg" alt="꽃다발">
+                  </div>
+                  <div class="info">
+                    <span class="infoType">공예</span>
+                    <span class="infoProfile">김지안</span>
+                  </div>
+                  <h3 class="tit">내 손으로 피워내는 한다발의 꽃</h3>
+                </a>
+                <button type="button" class="btnLike" aria-label="좋아요 체크하기" title="좋아요 체크하기"><i class="far fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="btn">오픈알림 신청</button>
+              </div>
+            </li>
+          </ul>
+          <div class="btnList">
+            <button type="button" class="btnPrev" aria-label="이전으로 가기" title="이전으로 가기"><i class="fas fa-angle-left"
+                aria-hidden="true"></i></button>
+            <button type="button" class="btnNext" aria-label="다음으로 가기" title="다음으로 가기"><i class="fas fa-angle-right"
+                aria-hidden="true"></i></button>
+          </div>
         </div>
       </section>
     </div>
     <footer>
-      <div class="infoMenu">
-        <nav>
-          <ul>
-            <li>
-              <dl>
-                <dt>COMPANY</dt>
-                <dd><a href="#">블로그</a></dd>
-                <dd><a href="#">언론보도</a></dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>POLICIES</dt>
-                <dd><a href="#">이용약관</a></dd>
-                <dd><a href="#">개인정보처리방침</a></dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>SUPPORT</dt>
-                <dd><a href="#">FAQ</a></dd>
-                <dd><a href="#">문의하기</a></dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>B2B</dt>
-                <dd><a href="#">기업교육</a></dd>
-                <dd><a href="#">브랜드제휴</a></dd>
-              </dl>
-            </li>
-          </ul>
-        </nav>
-        <div>
-          운영시간
-          평일 10:00 ~ 18:00 점심 13:00 ~14:00
-        </div>
-      </div>
+      <nav class="infoMenu">
+        <ul>
+          <li>
+            <strong class="tit">클래스#</strong>
+            <ul>
+              <li><a href="#">홈</a></li>
+              <li><a href="#">채용</a></li>
+            </ul>
+          </li>
+          <li>
+            <strong class="tit">크리에이터</strong>
+            <ul>
+              <li><a href="#">지원하기</a></li>
+            </ul>
+          </li>
+          <li>
+            <strong class="tit">고객센터 <span>오전 10시 ~ 오후 6시 (주말, 공휴일 제외)</span></strong>
+            <button type="button" class="btnTalk"><i class="fas fa-comment-dots"></i> 문의하기</button>
+          </li>
+        </ul>
+      </nav>
       <div class="companyInfo">
         <p>상호 : (주)클래스샵 | 주소 : 서울특별시 강남구 역삼동 000 -00 | 사업자등록번호 : 767-**-00000 | 대표자명 : ***</p>
         <p>통신판매업 신고번호 : 제 2020-서울강남-01028</p>
         <p>Copyright ⓒ2020 classshop inc, ltd. All rights reserved</p>
         <ul class="snsList">
-          <li><a href="#">페이스북</a></li>
-          <li><a href="#">인스타그램</a></li>
-          <li><a href="#">유튜브</a></li>
+          <li><a href="#" class="facebook" aria-label="페이스북으로 가기" title="페이스북으로 가기"><i class="fab fa-facebook-f"
+                aria-hidden="true"></i></a></li>
+          <li><a href="#" class="instagram" aria-label="인스타그램으로 가기" title="인스타그램으로 가기"><i class="fab fa-instagram"
+                aria-hidden="true"></i></a></li>
+          <li><a href="#" class="youtube" aria-label="유튜브로 가기" title="유튜브로 가기"><i class="fab fa-youtube"
+                aria-hidden="true"></i></a>
+          </li>
         </ul>
       </div>
     </footer>
