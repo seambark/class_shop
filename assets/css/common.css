@@ -1,3 +1,4 @@
+/* reset */
 * {
   box-sizing: border-box;
 }
@@ -53,8 +54,272 @@ ul {
 }
 a {
   text-decoration: none;
+  color: #000;
 }
 button {
   border: 0;
+  background-color: transparent;
   cursor: pointer;
+  font-size: 1rem;
+}
+img {
+  width: 100%;
+}
+
+section {
+  padding: 20px 0;
+}
+.wrap {
+  min-width: 360px;
+}
+#content {
+  padding: 20px;
+}
+
+/* skipNav */
+.skipNav {
+  position: relative;
+  z-index: 100;
+}
+.skipNav a {
+  display: block;
+  position: absolute;
+  top: -200px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+}
+.skipNav a:active,
+.skipNav a:focus {
+  top: 0;
+}
+
+/* header */
+.headerArea {
+  padding-bottom: 10px;
+}
+.header {
+  position: relative;
+  height: 80px;
+  padding: 18px 20px;
+  text-align: right;
+}
+.header .logo {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+}
+.header .logo a {
+  color: black;
+  font-weight: 600;
+  font-size: 2.6rem;
+  line-height: 1em;
+  vertical-align: top;
+}
+.header .serch {
+  display: inline-block;
+  position: relative;
+  text-align: right;
+}
+.header .serch .serchInput {
+  display: none;
+  width: 100%;
+  padding: 0 45px 0 10px;
+  font-size: 1rem;
+  line-height: 40px;
+}
+.header .serch button {
+  width: 45px;
+  height: 100%;
+  padding: 10px;
+  background-color: transparent;
+  font-size: 1.2rem;
+}
+.header .serch button span {
+  width: 0;
+  height: 0;
+  font-size: 0;
+  text-indent: -99999px;
+  line-height: 0;
+}
+.header .serch .searchTag {
+  display: none;
+  position: absolute;
+  bottom: -35px;
+  left: 0;
+  width: 500px;
+}
+.header .serch .searchTag li {
+  display: inline-block;
+  vertical-align: top;
+}
+.header .serch .searchTag li a {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: #e6e6e6;
+  font-size: 0.7rem;
+}
+.header .loginBox {
+  display: inline-block;
+}
+.header .loginBox a {
+  padding: 0 2px;
+}
+.gnb {
+  position: relative;
+  overflow: hidden;
+  padding: 0 0 0 40px;
+}
+.gnb .gnbAll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 1.05rem;
+  line-height: 40px;
+}
+.gnb ul {
+  white-space: nowrap;
+  overflow-y: auto;
+}
+.gnb ul li {
+  display: inline-block;
+  vertical-align: top;
+}
+.gnb ul li a {
+  display: block;
+  padding: 10px;
+}
+
+/* footer */
+footer {
+  padding: 20px;
+  border-top: 1px solid #d6d6d6;
+}
+footer .infoMenu {
+  position: relative;
+}
+footer .infoMenu > ul > li {
+  margin-top: 10px;
+}
+footer .infoMenu > ul > li:first-child {
+  margin-top: 0;
+}
+footer .infoMenu li a {
+  color: #858a8d;
+  font-size: 0.9rem;
+}
+footer .infoMenu .tit {
+  font-size: 1rem;
+}
+footer .infoMenu .tit span {
+  color: #858a8d;
+  font-size: 0.8rem;
+}
+footer .companyInfo {
+  margin-top: 20px;
+  color: #858a8d;
+  font-size: 0.8rem;
+}
+footer .companyInfo .snsList {
+  margin-top: 18px;
+}
+footer .companyInfo .snsList li {
+  display: inline-block;
+  vertical-align: top;
+}
+footer .companyInfo .snsList a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 30px;
+  text-align: center;
+}
+footer .companyInfo .snsList .instagram {
+  font-size: 1.1rem;
+}
+
+@media all and (min-width: 1200px) {
+  #content {
+    max-width: 1200px;
+    min-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+
+  /* header */
+  .headerArea {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .header {
+    padding-right: 147px;
+    text-align: left;
+  }
+  .header .logo {
+    display: inline-block;
+    position: inherit;
+    top: inherit;
+    left: inherit;
+    vertical-align: top;
+  }
+  .header .serch {
+    display: inline-block;
+    margin-left: 15px;
+  }
+  .header .serch .serchInput {
+    display: block;
+    width: 380px;
+  }
+  .header .serch button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .header .loginBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 30px 20px;
+  }
+
+  /* footer */
+  footer .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  footer .infoMenu > ul {
+    font-size: 0;
+  }
+  footer .infoMenu > ul > li {
+    display: inline-block;
+    width: 33.33%;
+    margin: 0;
+    vertical-align: top;
+  }
+  footer .infoMenu > ul > li > ul {
+    margin-top: 8px;
+  }
+  footer .infoMenu button {
+    margin-top: 8px;
+  }
+  footer .companyInfo {
+    position: relative;
+  }
+  footer .companyInfo .snsList {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-top: 0;
+  }
 }

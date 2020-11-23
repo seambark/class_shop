@@ -1,183 +1,32 @@
 @import url("common.css");
 
-.wrap {
-  min-width: 360px;
-}
-.skipNav {
-  display: none;
-}
-.headerArea {
-  padding-bottom: 10px;
-}
-.header {
-  position: relative;
-  height: 80px;
-  padding: 18px 20px;
-  text-align: right;
-}
-.header .logo {
-  position: absolute;
-  left: 20px;
-  top: 18px;
-}
-.header .logo a {
-  color: black;
-  font-weight: 700;
-  font-size: 2.6rem;
-  line-height: 1em;
-  vertical-align: top;
-}
-.header .serch {
-  display: inline-block;
-  position: relative;
-  text-align: right;
-}
-.header .serch .serchInput {
-  display: none;
-  width: 100%;
-  padding: 0 45px 0 10px;
-  font-size: 1rem;
-  line-height: 40px;
-}
-.header .serch button {
-  width: 45px;
-  height: 100%;
-  padding: 10px;
-  background-color: transparent;
-  font-size: 1.2rem;
-}
-.header .serch button span {
-  width: 0;
-  height: 0;
-  font-size: 0;
-  text-indent: -99999px;
-  line-height: 0;
-}
-.header .serch .searchTag {
-  display: none;
-  position: absolute;
-  bottom: -35px;
-  left: 0;
-  width: 500px;
-}
-.header .serch .searchTag li {
-  display: inline-block;
-  vertical-align: top;
-}
-.header .serch .searchTag li a {
-  display: inline-block;
-  padding: 5px;
-  border-radius: 15px;
-  background-color: #e6e6e6;
-  font-size: 0.7rem;
-}
-.header .loginBox {
-  display: inline-block;
-}
-.header .loginBox a {
-  padding: 0 2px;
-}
-.gnb {
-  position: relative;
-  overflow: hidden;
-  padding: 0 0 0 40px;
-}
-.gnb .gnbAll {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  font-size: 1.05rem;
-  line-height: 40px;
-}
-.gnb ul {
-  white-space: nowrap;
-  overflow-y: auto;
-}
-.gnb ul li {
-  display: inline-block;
-  vertical-align: top;
-}
-.gnb ul li a {
-  display: block;
-  padding: 10px;
-}
-.gnb ul li {
-}
-.content {
-  padding: 20px;
-}
-footer {
-  padding: 20px;
-  border-top: 1px solid #d6d6d6;
-}
-footer .infoMenu {
-  position: relative;
-}
-footer .infoMenu nav > ul > li:first-child {
-  margin-top: 0;
-}
-footer .infoMenu nav > ul > li {
-  margin-top: 10px;
-}
-footer .infoMenu .tit {
-  position: relative;
-}
-footer .infoMenu li a {
-  color: #858a8d;
-  font-size: 0.9rem;
-}
-footer .infoMenu .tit span {
-  color: #858a8d;
-  font-size: 0.8rem;
-}
-footer .companyInfo {
-  margin-top: 20px;
-  color: #858a8d;
-  font-size: 0.8rem;
-}
-footer .companyInfo .snsList {
-  margin-top: 18px;
-}
-footer .companyInfo .snsList li {
-  display: inline-block;
-  vertical-align: top;
-}
-footer .companyInfo .snsList a {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #000;
-  color: #fff;
-  font-size: 0.95rem;
-  line-height: 30px;
-  text-align: center;
-}
-footer .companyInfo .snsList .instagram {
-  font-size: 1.1rem;
-}
-
 .mainSlide {
   position: relative;
   overflow: hidden;
   width: 100%;
-}
-.mainSlide ul {
-  white-space: nowrap;
-  font-size: 0;
+  height: 700px;
 }
 .mainSlide ul li {
-  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 40px 20px 60px;
+  height: 100%;
   background-color: #6e8dd0;
-  vertical-align: top;
+}
+.mainSlide ul li.on,
+.mainSlide ul li.on a:focus,
+.mainSlide ul li a:focus {
+  z-index: 20;
 }
 .mainSlide ul li a {
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  padding: 40px 20px 60px;
 }
 .mainSlide .slideImg {
   position: relative;
@@ -208,16 +57,20 @@ footer .companyInfo .snsList .instagram {
 }
 .mainSlide .slideTex {
   margin: 60px 0 20px;
+  color: #fff;
   font-size: 1rem;
 }
 .mainSlide .slideTex:hover {
   text-decoration: underline;
 }
 .mainSlide .slideTex dt {
+  font-weight: 600;
   font-size: 1.5rem;
+  letter-spacing: -0.05em;
 }
 .mainSlide .slideTex dd {
   margin-top: 10px;
+  color: #e9e9e9;
 }
 .mainSlide .controlSlide {
   position: absolute;
@@ -226,7 +79,9 @@ footer .companyInfo .snsList .instagram {
   width: 100%;
   height: 40px;
   margin-bottom: 10px;
-  padding: 0 110px 0 80px;
+  padding: 0 150px 0 80px;
+  color: #fff;
+  z-index: 50;
 }
 .mainSlide .controlSlide .paging {
   position: absolute;
@@ -236,7 +91,7 @@ footer .companyInfo .snsList .instagram {
   line-height: 40px;
 }
 .mainSlide .controlSlide .paging .now {
-  font-weight: 700;
+  font-weight: 600;
 }
 .mainSlide .controlSlide .timeBar {
   position: relative;
@@ -274,8 +129,18 @@ footer .companyInfo .snsList .instagram {
 .mainSlide .controlSlide .btnSlide button {
   width: 40px;
   height: 40px;
+  color: #fff;
   font-size: 1.6rem;
 }
+.mainSlide .controlSlide .btnSlide .btnStop {
+}
+.mainSlide .controlSlide .btnSlide .btnStop.play i:before {
+  content: "\f144";
+}
+.mainSlide .controlSlide .btnSlide button i {
+  pointer-events: none;
+}
+
 .titArea {
   margin-bottom: 30px;
 }
@@ -285,14 +150,21 @@ footer .companyInfo .snsList .instagram {
 .titArea p {
   margin-top: 15px;
 }
-.productList ul li:first-child {
+.productList ul {
+  font-size: 0;
+}
+.productList ul li:last-child {
   margin-top: 0;
 }
 .productList ul li {
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .productList .item {
   position: relative;
+  font-size: 1rem;
+}
+.productList .item a {
+  display: block;
 }
 .productList .item .btn {
   width: 100%;
@@ -331,8 +203,14 @@ footer .companyInfo .snsList .instagram {
   background-color: #000;
 }
 .productList .item .tit {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 42px;
   margin-top: 5px;
   color: #1b1c1d;
+  text-overflow: ellipsis;
 }
 .productList .item .tag {
   margin-top: 5px;
@@ -357,7 +235,7 @@ footer .companyInfo .snsList .instagram {
   line-height: 0;
 }
 .productList .item .price .priceOriginal {
-  font-weight: 700;
+  font-weight: 600;
 }
 .productList .item .price .priceOriginal::before {
   content: "정상가 ";
@@ -377,7 +255,7 @@ footer .companyInfo .snsList .instagram {
 }
 .productList .item .price .priceDiscount {
   display: block;
-  font-weight: 700;
+  font-weight: 600;
 }
 .productList .item .price .priceDiscount::before {
   content: "판매가 ";
@@ -404,6 +282,93 @@ footer .companyInfo .snsList .instagram {
 .productList .item .btnLike.on i {
   font-weight: 900;
 }
+.productList.leftList {
+  overflow-y: auto;
+  position: relative;
+  margin: 0 -20px;
+  padding: 0 20px;
+}
+.productList.leftList ul {
+  white-space: nowrap;
+  margin: 0 -8px;
+}
+.productList.leftList ul li {
+  display: inline-block;
+  width: 245px;
+  margin-bottom: 0;
+  padding: 0 8px;
+  vertical-align: top;
+}
+.productList.leftList .item {
+  white-space: initial;
+}
+.productList.leftList .item a {
+  display: block;
+  min-height: 320px;
+}
+.productList.leftList .item .btn {
+}
+.productList.leftList .item .img {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 170px;
+  text-align: center;
+}
+
+.productList.leftList .item .img img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 245px;
+  width: auto;
+  height: 100%;
+}
+.productList.leftList .item .tit {
+  min-height: 42px;
+}
+.productList.leftList .btnTurnSet {
+  display: none;
+}
+.banner {
+  overflow: hidden;
+  position: relative;
+  height: 100px;
+  margin-top: 25px;
+  border-radius: 3px;
+  background-color: #c2d2f7;
+}
+.banner a {
+  display: block;
+  height: 100%;
+}
+.banner .tit {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+.banner p {
+  margin-top: 3px;
+  font-size: 0.9rem;
+}
+.banner ul {
+  white-space: nowrap;
+}
+.banner ul li {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+.banner .bannerTxt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 20px 40px;
+}
+
+/* button */
 .btnMore,
 .btnTalk {
   display: block;
@@ -415,40 +380,120 @@ footer .companyInfo .snsList .instagram {
   color: #6e8dd0;
   text-align: center;
 }
-footer .infoMenu {
+.btnTurnSet {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 57px;
 }
-footer .infoMenu nav {
+.btnTurnSet button {
+  position: absolute;
+  top: 0;
+  padding: 10px;
+  border-radius: 0 8px 8px 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+}
+.btnTurnSet .btnPrev {
+  left: 0;
+}
+.btnTurnSet .btnNext {
+  right: 0;
+  border-radius: 8px 0 0 8px;
 }
 
-@media all and (min-width: 1000px) {
-  .header {
-    padding-right: 147px;
-    text-align: left;
+@media all and (min-width: 1200px) {
+  .mainSlide,
+  .mainSlide ul > li {
+    height: 720px;
   }
-  .header .logo {
+  .mainSlide ul > li > a {
+    display: block;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+  }
+  .mainSlide .slideImg {
+    width: 600px;
+    height: 600px;
+    margin: 0;
+  }
+  .mainSlide .slideTex {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: calc(100% - 650px);
+    margin: 0;
+    transform: translateY(-50%);
+  }
+  .mainSlide .slideTex dt {
+    font-size: 3rem;
+  }
+  .mainSlide .slideTex dd {
+    margin-top: 15px;
+    font-size: 1.3rem;
+  }
+  .mainSlide .controlSlide {
+    width: 1200px;
+    padding: 0 130px 0 710px;
+    bottom: 60px;
+    transform: translateX(-50%);
+    left: 50%;
+    margin-bottom: 0;
+  }
+  .mainSlide .controlSlide .paging {
+    left: initial;
+    right: 500px;
+  }
+  .mainSlide .controlSlide .btnSlide {
+    right: 0;
+  }
+
+  .productList ul {
+    margin: 0 -8px;
+  }
+  .productList ul li {
     display: inline-block;
-    position: inherit;
-    top: inherit;
-    left: inherit;
+    width: 25%;
+    padding: 0 8px;
     vertical-align: top;
   }
-  .header .serch {
-    display: inline-block;
-    margin-left: 15px;
-  }
-  .header .serch .serchInput {
+  .productList ul li a {
     display: block;
-    width: 380px;
+    min-height: 330px;
   }
-  .header .serch button {
-    position: absolute;
-    top: 0;
-    right: 0;
+  .productList ul li .img {
+    overflow: hidden;
+    height: 200px;
   }
-  .header .loginBox {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 30px 20px;
+  .productList ul li .img img {
+    height: 100%;
+  }
+  .productList.leftList {
+    padding: 0;
+    margin: 0;
+  }
+  .productList.leftList ul {
+    margin: 0;
+  }
+  .productList.leftList ul li {
+    padding: 0;
+    margin-left: 16px;
+  }
+  .productList.leftList ul li:first-child {
+    margin-left: 0;
+  }
+  .productList.leftList .btnTurnSet {
+    display: block;
+  }
+  .productList.leftList .btnTurnSet {
+    top: 15%;
+    transform: translateX(-50%);
   }
 }
