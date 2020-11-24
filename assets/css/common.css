@@ -65,6 +65,9 @@ button {
 img {
   width: 100%;
 }
+i {
+  pointer-events: none;
+}
 
 section {
   padding: 20px 0;

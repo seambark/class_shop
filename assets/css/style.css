@@ -85,13 +85,14 @@
 }
 .mainSlide .controlSlide .paging {
   position: absolute;
-  top: 0;
+  top: -6px;
   left: 20px;
   font-size: 1.1rem;
   line-height: 40px;
 }
 .mainSlide .controlSlide .paging .now {
   font-weight: 600;
+  font-size: 1.8rem;
 }
 .mainSlide .controlSlide .timeBar {
   position: relative;
@@ -116,10 +117,18 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 30%;
   height: 3px;
   border-radius: 3px;
   background-color: lavender;
+  animation: timemove 5s infinite;
+}
+@keyframes timemove {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 .mainSlide .controlSlide .btnSlide {
   position: absolute;
@@ -136,9 +145,6 @@
 }
 .mainSlide .controlSlide .btnSlide .btnStop.play i:before {
   content: "\f144";
-}
-.mainSlide .controlSlide .btnSlide button i {
-  pointer-events: none;
 }
 
 .titArea {
@@ -442,7 +448,7 @@
   .mainSlide .controlSlide {
     width: 1200px;
     padding: 0 130px 0 710px;
-    bottom: 60px;
+    bottom: 50px;
     transform: translateX(-50%);
     left: 50%;
     margin-bottom: 0;
