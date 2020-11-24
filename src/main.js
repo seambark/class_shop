@@ -10,6 +10,7 @@ let btnNext = document.querySelector('.btnNext');
 let btnStop = document.querySelector('.btnStop');
 let productList = document.querySelectorAll('.productList');
 let crrentSlide;
+let autoStart;
 
 mainSlide.addEventListener('click', onMainSlide);
 
@@ -46,6 +47,15 @@ function slidePaging() {
 }
 slidePaging()
 
+function timebarAction() {
+    let timebarClass = timeBar.getAttribute('class');
+
+    if (timebarClass === 'timeBar') {
+        timeBar.classList.add('on')
+    } else {
+        timeBar.classList.remove('on')
+    }
+}
 function btnPrevAction(list) {
     let last = slide.lastElementChild;
     if (slideLi && list === undefined || list === null) {
@@ -67,18 +77,23 @@ function btnStopAction(button) {
     let btnClass = button.getAttribute('class');
 
     if (btnClass === 'btnStop') {
-        button.classList.add('play')
+        button.classList.add('play');
+        clearInterval(autoStart);
+        timebarAction()
     } else {
-        button.classList.remove('play')
+        button.classList.remove('play');
+        autoStart = setInterval(autoPlay, 5000);
+        timebarAction()
     }
 }
 
 let btnPlay = document.querySelector('.btnStop.play')
-let autoStart = setInterval(autoPlay, 5000);
+autoStart = setInterval(autoPlay, 5000);
 function autoPlay() {
     let next = crrentSlide.nextElementSibling;
     btnNextAction(next);
     pagingNow(pageNow);
+    timeBar.classList.add('on')
 }
 
 function slideTimeBar() {
@@ -94,9 +109,11 @@ function onMainSlide(e) {
     if (clickTarget === btnPrev) {
         let prev = crrentSlide.previousElementSibling;
         btnPrevAction(prev)
+        timeBar.classList.remove('on')
     } else if (clickTarget === btnNext) {
         let next = crrentSlide.nextElementSibling;
         btnNextAction(next)
+        timeBar.classList.remove('on')
     } else if (clickTarget === btnStop) {
         btnStopAction(btnStop)
     }

@@ -120,6 +120,8 @@
   height: 3px;
   border-radius: 3px;
   background-color: lavender;
+}
+.mainSlide .controlSlide .timeBar.on .time {
   animation: timemove 5s infinite;
 }
 @keyframes timemove {
@@ -140,8 +142,6 @@
   height: 40px;
   color: #fff;
   font-size: 1.6rem;
-}
-.mainSlide .controlSlide .btnSlide .btnStop {
 }
 .mainSlide .controlSlide .btnSlide .btnStop.play i:before {
   content: "\f144";
@@ -311,8 +311,6 @@
 .productList.leftList .item a {
   display: block;
   min-height: 320px;
-}
-.productList.leftList .item .btn {
 }
 .productList.leftList .item .img {
   position: relative;
