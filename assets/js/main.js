@@ -3,8 +3,10 @@ let slide = document.querySelector('.slide');
 let slideLi = slide.querySelector('li');
 let slideLis = slide.querySelectorAll('li');
 let slideLiLast = slideLis.length - 1;
+let slideImgs = slide.querySelectorAll('.slideImg');
 let paging = document.querySelector('.paging');
 let timeBar = document.querySelector('.timeBar');
+let btnSlide = document.querySelector('.btnSlide');
 let btnPrev = document.querySelector('.btnPrev');
 let btnNext = document.querySelector('.btnNext');
 let btnStop = document.querySelector('.btnStop');
@@ -56,6 +58,11 @@ function timebarAction() {
         timeBar.classList.remove('on')
     }
 }
+
+function timeBarStop() {
+    timeBar.classList.remove('on')
+}
+
 function btnPrevAction(list) {
     let last = slide.lastElementChild;
     if (slideLi && list === undefined || list === null) {
@@ -87,7 +94,7 @@ function btnStopAction(button) {
     }
 }
 
-let btnPlay = document.querySelector('.btnStop.play')
+let pageNow = paging.querySelector(".now")
 autoStart = setInterval(autoPlay, 5000);
 function autoPlay() {
     let next = crrentSlide.nextElementSibling;
@@ -96,12 +103,27 @@ function autoPlay() {
     timeBar.classList.add('on')
 }
 
-function slideTimeBar() {
-    let time = timeBar.querySelector('.time');
-    time.style.width = ``
-}
+mainSlide.addEventListener('keydown', keyControl);
+function keyControl(e) {
+    let keyCheck = e.key;
+    let keyFocus = e.target;
+    let keyFocusParent = keyFocus.parentNode;
+    let prev = keyFocus.previousElementSibling;
+    let next = keyFocus.nextElementSibling;
+    let nextOn = keyFocusParent.nextElementSibling;
 
-let pageNow = paging.querySelector(".now")
+    if (keyCheck === 'Tab' && keyFocus.tagName === 'A' && nextOn) {
+        slidOn(nextOn)
+        pagingNow(pageNow)
+        timeBarStop()
+    }
+
+    if (keyCheck === 'ArrowLeft' && keyFocus.tagName === 'BUTTON' && prev) {
+        prev.focus()
+    } else if (keyCheck === 'ArrowRight' && keyFocus.tagName === 'BUTTON' && next) {
+        next.focus()
+    }
+}
 
 function onMainSlide(e) {
     let clickTarget = e.target;
@@ -109,11 +131,11 @@ function onMainSlide(e) {
     if (clickTarget === btnPrev) {
         let prev = crrentSlide.previousElementSibling;
         btnPrevAction(prev)
-        timeBar.classList.remove('on')
+        timeBarStop()
     } else if (clickTarget === btnNext) {
         let next = crrentSlide.nextElementSibling;
         btnNextAction(next)
-        timeBar.classList.remove('on')
+        timeBarStop()
     } else if (clickTarget === btnStop) {
         btnStopAction(btnStop)
     }
