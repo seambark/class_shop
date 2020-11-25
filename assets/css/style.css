@@ -4,7 +4,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 700px;
+  height: 140vmin;
 }
 .mainSlide ul li {
   position: absolute;
@@ -35,8 +35,8 @@
 .mainSlide .slideImg {
   overflow: hidden;
   position: relative;
-  width: 455px;
-  height: 455px;
+  width: calc(100vmin - 6rem);
+  height: calc(100vmin - 6rem);
   margin: 0 auto;
   box-shadow: 2px 5px 27px rgba(0, 0, 0, 0.4);
 }
@@ -60,19 +60,30 @@
   font-size: 0.8rem;
 }
 .mainSlide .slideTex {
-  margin: 60px 0 20px;
+  /* margin: 60px 0 20px; */
+  margin: 40px 0 20px;
   color: #fff;
   font-size: 1rem;
 }
 .mainSlide .slideTex:hover {
   text-decoration: underline;
 }
+.mainSlide .slideTex dt,
+.mainSlide .slideTex dd {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
 .mainSlide .slideTex dt {
+  max-height: 65px;
   font-weight: 600;
   font-size: 1.5rem;
   letter-spacing: -0.05em;
 }
 .mainSlide .slideTex dd {
+  max-height: 41px;
   margin-top: 10px;
   color: #e9e9e9;
 }
@@ -414,6 +425,23 @@
   right: 0;
   border-radius: 8px 0 0 8px;
 }
+@media (min-width: 540px) and (max-width: 800px) {
+  .mainSlide {
+    height: 130vmin;
+  }
+  .mainSlide .slideTex dd {
+    margin-top: 15px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1199px) {
+  .mainSlide {
+    height: 125vmin;
+  }
+  .mainSlide .slideTex dt {
+    font-size: 1.6rem;
+  }
+}
 
 @media all and (min-width: 1200px) {
   .mainSlide,
@@ -441,11 +469,15 @@
     transform: translateY(-50%);
   }
   .mainSlide .slideTex dt {
+    max-height: 190px;
     font-size: 3rem;
+    -webkit-line-clamp: 3;
   }
   .mainSlide .slideTex dd {
+    max-height: 115px;
     margin-top: 15px;
     font-size: 1.3rem;
+    -webkit-line-clamp: 4;
   }
   .mainSlide .controlSlide {
     width: 1200px;
