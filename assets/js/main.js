@@ -7,12 +7,24 @@ let slideImgs = slide.querySelectorAll('.slideImg');
 let paging = document.querySelector('.paging');
 let timeBar = document.querySelector('.timeBar');
 let btnSlide = document.querySelector('.btnSlide');
-let btnPrev = document.querySelector('.btnPrev');
-let btnNext = document.querySelector('.btnNext');
-let btnStop = document.querySelector('.btnStop');
+let btnPrev = document.querySelector('.mainSlide .btnPrev');
+let btnNext = document.querySelector('.mainSlide .btnNext');
+let btnStop = document.querySelector('.mainSlide .btnStop');
 let productList = document.querySelectorAll('.productList');
+let leftListSlides = document.querySelectorAll('.leftListSlide');
+let leftListSlide = document.querySelector('.leftListSlide');
 let crrentSlide;
 let autoStart;
+
+let btnTurnSet = document.querySelectorAll('.btnTurnSet');
+let setBtnPrev = document.querySelector('.btnTurnSet .btnPrev');
+let setBtnNext = document.querySelector('.btnTurnSet .btnNext');
+let currentWidthSize = 0;
+
+let serch = document.querySelector('.serch');
+let serchInput = document.querySelector('.serchInput');
+let btnSerch = document.querySelector('.btnSerch');
+let searchTag = document.querySelector('.searchTag');
 
 mainSlide.addEventListener('click', onMainSlide);
 
@@ -159,6 +171,57 @@ function onLike(e) {
     }
 }
 
+for (let i = 0; btnTurnSet.length > i; i++) {
+    btnTurnSet[i].addEventListener('click', onLeftListSlides)
+}
 
+function setBtnOnOff(listWidth, ulWidth) {
+    let width = currentWidthSize + listWidth
+
+    if (currentWidthSize === 0) {
+        setBtnPrev.classList.add('on')
+    } else if (width > ulWidth) {
+        setBtnNext.classList.add('on')
+    } else {
+        setBtnPrev.classList.remove('on')
+        setBtnNext.classList.remove('on')
+    }
+}
+setBtnOnOff()
+
+function setBtnPrevAction(width, listUl) {
+    if (currentWidthSize <= 0) {
+        return
+    }
+
+    width = currentWidthSize - width
+    listUl.style.transform = `translateX(-${width}px)`
+    currentWidthSize = width
+}
+function setBtnNextAction(width, ulWidth) {
+    let lastCheck = ulWidth - width
+
+    if (currentWidthSize >= lastCheck) {
+        return
+    }
+    width = width + currentWidthSize
+    ulWidth.style.transform = `translateX(-${width}px)`
+    currentWidthSize = width
+}
+
+function onLeftListSlides(e) {
+    let clickTarget = e.target;
+    let topParent = clickTarget.parentNode.parentNode;
+    let targrtUl = topParent.querySelector('ul');
+    let widthUl = targrtUl.offsetWidth;
+    let width = topParent.offsetWidth;
+
+    if (clickTarget.tagName === 'BUTTON' && clickTarget === setBtnPrev) {
+        setBtnPrevAction(width, targrtUl)
+    } else if (clickTarget.tagName === 'BUTTON' && clickTarget === setBtnNext) {
+        setBtnNextAction(width, targrtUl)
+    }
+    setBtnOnOff(width, widthUl)
+}
 
 

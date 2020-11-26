@@ -103,7 +103,7 @@ section {
 
 /* header */
 .headerArea {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 .header {
   position: relative;
@@ -155,6 +155,10 @@ section {
   bottom: -35px;
   left: 0;
   width: 500px;
+  text-align: left;
+}
+.header .serch.on .searchTag {
+  display: block;
 }
 .header .serch .searchTag li {
   display: inline-block;
@@ -197,7 +201,8 @@ section {
 }
 .gnb ul li a {
   display: block;
-  padding: 10px;
+  padding: 0 10px;
+  line-height: 40px;
 }
 
 /* footer */
@@ -264,6 +269,7 @@ footer .companyInfo .snsList .instagram {
   .headerArea {
     max-width: 1200px;
     margin: 0 auto;
+    padding-bottom: 10px;
   }
   .header {
     padding-right: 147px;
