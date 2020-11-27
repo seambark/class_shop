@@ -248,7 +248,7 @@
   margin-top: 10px;
 }
 .productList .item .price span::before,
-.productList .item .price strong::before {
+.productList .item .price em::before {
   width: 0;
   height: 0;
   font-size: 0;
