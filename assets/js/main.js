@@ -26,6 +26,11 @@ let serchInput = document.querySelector('.serchInput');
 let btnSerch = document.querySelector('.btnSerch');
 let searchTag = document.querySelector('.searchTag');
 
+let btnGotoTop = document.querySelector('.btnGotoTop');
+let currentScroll;
+
+window.addEventListener('scroll', onScrollCheck)
+btnGotoTop.addEventListener('click', onGotoTop);
 mainSlide.addEventListener('click', onMainSlide);
 
 function slideSetting() {
@@ -222,6 +227,22 @@ function onLeftListSlides(e) {
         setBtnNextAction(width, targrtUl)
     }
     setBtnOnOff(width, widthUl)
+}
+
+function onGotoTop() {
+    window.scrollTo(0, 0);
+}
+
+function onScrollCheck() {
+    let scrollPosition = document.documentElement.scrollTop;
+
+    if (scrollPosition < currentScroll) {
+        btnGotoTop.classList.add('on');
+    } else {
+        btnGotoTop.classList.remove('on');
+
+    }
+    currentScroll = scrollPosition
 }
 
 
