@@ -21,10 +21,8 @@ let setBtnPrev = document.querySelector('.btnTurnSet .btnPrev');
 let setBtnNext = document.querySelector('.btnTurnSet .btnNext');
 let currentWidthSize = 0;
 
-let serch = document.querySelector('.serch');
-let serchInput = document.querySelector('.serchInput');
-let btnSerch = document.querySelector('.btnSerch');
-let searchTag = document.querySelector('.searchTag');
+let serchBox = document.querySelector('.serchBox');
+let btnSerchOn = document.querySelector('.btnSerchOn');
 
 let btnGotoTop = document.querySelector('.btnGotoTop');
 let currentScroll;
@@ -32,6 +30,7 @@ let currentScroll;
 window.addEventListener('scroll', onScrollCheck)
 btnGotoTop.addEventListener('click', onGotoTop);
 mainSlide.addEventListener('click', onMainSlide);
+btnSerchOn.addEventListener('click', onSerch);
 
 function slideSetting() {
     slideLi.classList.add('on');
@@ -75,7 +74,7 @@ function timebarAction() {
         timeBar.classList.remove('on')
     }
 }
-
+timebarAction()
 function timeBarStop() {
     timeBar.classList.remove('on')
 }
@@ -117,7 +116,6 @@ function autoPlay() {
     let next = crrentSlide.nextElementSibling;
     btnNextAction(next);
     pagingNow(pageNow);
-    timeBar.classList.add('on')
 }
 
 mainSlide.addEventListener('keydown', keyControl);
@@ -227,6 +225,15 @@ function onLeftListSlides(e) {
         setBtnNextAction(width, targrtUl)
     }
     setBtnOnOff(width, widthUl)
+}
+
+function onSerch() {
+    let serchBoxClass = serchBox.getAttribute('class');
+    if (serchBoxClass === 'serchBox') {
+        serchBox.classList.add('on')
+    } else {
+        serchBox.classList.remove('on')
+    }
 }
 
 function onGotoTop() {
