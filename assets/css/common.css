@@ -123,48 +123,51 @@ section {
   line-height: 1em;
   vertical-align: top;
 }
-.header .serch {
+.header .serchBox {
   display: inline-block;
-  position: relative;
-  text-align: right;
 }
-.header .serch .serchInput {
+.header .serchBox .btnSerchOn {
+  width: 40px;
+  height: 40px;
+}
+.header .serchBox .serchInner {
   display: none;
+}
+.header .serchInner .serch {
+  display: block;
+  position: relative;
+  height: 45px;
+}
+.header .serchInner .serch .serchInput {
   width: 100%;
   padding: 0 45px 0 10px;
   font-size: 1rem;
   line-height: 40px;
 }
-.header .serch button {
+.header .serchInner .serch .btnSerch {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 45px;
   height: 100%;
   padding: 10px;
   background-color: transparent;
   font-size: 1.2rem;
 }
-.header .serch button span {
+.header .serchInner .serch .btnSerch span {
   width: 0;
   height: 0;
   font-size: 0;
   text-indent: -99999px;
   line-height: 0;
 }
-.header .serch .searchTag {
-  display: none;
-  position: absolute;
-  bottom: -35px;
-  left: 0;
-  width: 500px;
-  text-align: left;
-}
-.header .serch.on .searchTag {
-  display: block;
-}
-.header .serch .searchTag li {
+.header .serchInner #searchTag li {
   display: inline-block;
   vertical-align: top;
+  margin-bottom: 7px;
 }
-.header .serch .searchTag li a {
+.header .serchInner #searchTag li a {
   display: inline-block;
   padding: 5px;
   border-radius: 15px;
@@ -175,7 +178,21 @@ section {
   display: inline-block;
 }
 .header .loginBox a {
-  padding: 0 2px;
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+}
+.header .loginBox .alarm {
+  position: relative;
+}
+.header .loginBox .alarm.on i {
+  color: #f33340;
+  font-weight: 900;
+}
+.header .loginBox .alarm.on::after {
+  content: "새 알림";
+  font-size: 0;
+  line-height: 0;
 }
 .gnb {
   position: relative;
@@ -293,6 +310,31 @@ footer .companyInfo .snsList .instagram {
     margin: 0 auto;
     padding-bottom: 10px;
   }
+
+  /* footer */
+  footer .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .header .serchBox.on .serchInner {
+    display: block;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    padding: 25px 20px 30px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+  }
+  .header .serchBox #searchTag {
+    margin-top: 20px;
+    text-align: left;
+  }
+}
+@media all and (min-width: 801px) {
   .header {
     padding-right: 147px;
     text-align: left;
@@ -304,31 +346,33 @@ footer .companyInfo .snsList .instagram {
     left: inherit;
     vertical-align: top;
   }
-  .header .serch {
+  .header .serchBox {
     display: inline-block;
     margin-left: 15px;
   }
-  .header .serch .serchInput {
+  .header .serchBox .btnSerchOn {
+    display: none;
+  }
+  .header .serchBox .serchInner {
     display: block;
+    position: relative;
+  }
+  .header .serchInner .serch .serchInput {
     width: 380px;
   }
-  .header .serch button {
+  .header .serchInner #searchTag {
+    display: none;
     position: absolute;
-    top: 0;
-    right: 0;
+    bottom: -35px;
+    left: 0;
   }
   .header .loginBox {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 30px 20px;
+    padding: 20px;
   }
 
-  /* footer */
-  footer .inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
   footer .infoMenu > ul {
     font-size: 0;
   }
