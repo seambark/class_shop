@@ -116,6 +116,7 @@ function autoPlay() {
     let next = crrentSlide.nextElementSibling;
     btnNextAction(next);
     pagingNow(pageNow);
+    timeBar.classList.add('on')
 }
 
 mainSlide.addEventListener('keydown', keyControl);
