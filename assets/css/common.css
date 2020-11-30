@@ -129,6 +129,7 @@ section {
 .header .serchBox .btnSerchOn {
   width: 40px;
   height: 40px;
+  display: block;
 }
 .header .serchBox .serchInner {
   display: none;
@@ -320,19 +321,31 @@ footer .companyInfo .snsList .instagram {
 }
 
 @media all and (max-width: 800px) {
+  .header .serchBox.on .btnSerchOn {
+    display: none;
+  }
   .header .serchBox.on .serchInner {
     display: block;
     position: absolute;
     top: 80px;
     left: 0;
     width: 100%;
-    padding: 25px 20px 30px;
+    padding: 25px 20px 45px;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 100;
   }
   .header .serchBox #searchTag {
     margin-top: 20px;
     text-align: left;
+  }
+  .header .serchInner .btnClose {
+    position: absolute;
+    right: 15px;
+    bottom: 12px;
+    height: 30px;
+    width: 30px;
+    color: #fff;
+    font-size: 1.2rem;
   }
 }
 @media all and (min-width: 801px) {
@@ -366,6 +379,9 @@ footer .companyInfo .snsList .instagram {
     position: absolute;
     bottom: -35px;
     left: 0;
+  }
+  .header .serchInner .btnClose {
+    display: none;
   }
   .header .loginBox {
     position: absolute;

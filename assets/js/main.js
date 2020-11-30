@@ -22,7 +22,6 @@ let setBtnNext = document.querySelector('.btnTurnSet .btnNext');
 let currentWidthSize = 0;
 
 let serchBox = document.querySelector('.serchBox');
-let btnSerchOn = document.querySelector('.btnSerchOn');
 
 let btnGotoTop = document.querySelector('.btnGotoTop');
 let currentScroll;
@@ -30,7 +29,7 @@ let currentScroll;
 window.addEventListener('scroll', onScrollCheck)
 btnGotoTop.addEventListener('click', onGotoTop);
 mainSlide.addEventListener('click', onMainSlide);
-btnSerchOn.addEventListener('click', onSerch);
+serchBox.addEventListener('click', onSerch);
 
 function slideSetting() {
     slideLi.classList.add('on');
@@ -228,11 +227,13 @@ function onLeftListSlides(e) {
     setBtnOnOff(width, widthUl)
 }
 
-function onSerch() {
-    let serchBoxClass = serchBox.getAttribute('class');
-    if (serchBoxClass === 'serchBox') {
+function onSerch(e) {
+    let serchBtn = e.target;
+    let serchBoxClass = serchBtn.getAttribute('class');
+
+    if (serchBoxClass === 'btnSerchOn') {
         serchBox.classList.add('on')
-    } else {
+    } else if (serchBoxClass === 'btnClose') {
         serchBox.classList.remove('on')
     }
 }
