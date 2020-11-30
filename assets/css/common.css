@@ -108,7 +108,7 @@ section {
 .header {
   position: relative;
   height: 80px;
-  padding: 18px 20px;
+  padding: 20px 20px 19px;
   text-align: right;
 }
 .header .logo {
@@ -125,11 +125,12 @@ section {
 }
 .header .serchBox {
   display: inline-block;
+  vertical-align: top;
 }
 .header .serchBox .btnSerchOn {
+  display: block;
   width: 40px;
   height: 40px;
-  display: block;
 }
 .header .serchBox .serchInner {
   display: none;
@@ -183,6 +184,7 @@ section {
   display: inline-block;
   padding: 10px;
   cursor: pointer;
+  vertical-align: top;
 }
 .header .loginBox .alarm {
   position: relative;
@@ -350,7 +352,7 @@ footer .companyInfo .snsList .instagram {
 }
 @media all and (min-width: 801px) {
   .header {
-    padding-right: 147px;
+    padding: 17px 147px 17px 20px;
     text-align: left;
   }
   .header .logo {
