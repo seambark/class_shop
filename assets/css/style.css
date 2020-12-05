@@ -350,6 +350,8 @@
   display: none;
 }
 .banner {
+  overflow: hidden;
+  position: relative;
   margin-top: 25px;
 }
 .banner a {
@@ -401,6 +403,30 @@
   width: 50%;
   padding: 0 6px;
   vertical-align: top;
+}
+.banner ul li a {
+  height: 150px;
+}
+.banner ul li img {
+  height: 100%;
+}
+.banner.leftListSlide ul {
+  display: inline-block;
+  margin: 0;
+  white-space: nowrap;
+  vertical-align: top;
+  font-size: 0;
+}
+.banner.leftListSlide li {
+  display: inline-block;
+  width: 91.455vw;
+  padding: 0;
+}
+.banner.leftListSlide li .bannerTxt {
+  white-space: initial;
+}
+.leftListSlide ul {
+  transform: translateX(0);
 }
 
 /* button */
@@ -585,5 +611,8 @@
   .banner {
     margin: 40px 0 0;
     border-radius: 3px;
+  }
+  .banner.leftListSlide li {
+    width: 1200px;
   }
 }

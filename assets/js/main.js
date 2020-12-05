@@ -17,9 +17,6 @@ let crrentSlide;
 let autoStart;
 
 let btnTurnSet = document.querySelectorAll('.btnTurnSet');
-let setBtnPrev = document.querySelector('.btnTurnSet .btnPrev');
-let setBtnNext = document.querySelector('.btnTurnSet .btnNext');
-let currentWidthSize = 0;
 
 let serchBox = document.querySelector('.serchBox');
 
@@ -176,56 +173,30 @@ function onLike(e) {
 }
 
 for (let i = 0; btnTurnSet.length > i; i++) {
-    btnTurnSet[i].addEventListener('click', onLeftListSlides)
-}
-
-function setBtnOnOff(listWidth, ulWidth) {
-    let width = currentWidthSize + listWidth
-
-    if (currentWidthSize === 0) {
-        setBtnPrev.classList.add('on')
-    } else if (width > ulWidth) {
-        setBtnNext.classList.add('on')
-    } else {
-        setBtnPrev.classList.remove('on')
-        setBtnNext.classList.remove('on')
-    }
-}
-setBtnOnOff()
-
-function setBtnPrevAction(width, listUl) {
-    if (currentWidthSize <= 0) {
-        return
-    }
-
-    width = currentWidthSize - width
-    listUl.style.transform = `translateX(-${width}px)`
-    currentWidthSize = width
-}
-function setBtnNextAction(width, ulWidth) {
-    let lastCheck = ulWidth - width
-
-    if (currentWidthSize >= lastCheck) {
-        return
-    }
-    width = width + currentWidthSize
-    ulWidth.style.transform = `translateX(-${width}px)`
-    currentWidthSize = width
+    btnTurnSet[i].addEventListener('click', onLeftListSlides);
 }
 
 function onLeftListSlides(e) {
     let clickTarget = e.target;
     let topParent = clickTarget.parentNode.parentNode;
+    let targetClass = clickTarget.getAttribute('class');
     let targrtUl = topParent.querySelector('ul');
     let widthUl = targrtUl.offsetWidth;
     let width = topParent.offsetWidth;
+    let maxWidth = widthUl - width
+    let translateX = targrtUl.style.transform;
+    let translateXValue = translateX.replace(/[^0-9]/g, '');
+    let translatexValueNumber = Number(translateXValue);
 
-    if (clickTarget.tagName === 'BUTTON' && clickTarget === setBtnPrev) {
-        setBtnPrevAction(width, targrtUl)
-    } else if (clickTarget.tagName === 'BUTTON' && clickTarget === setBtnNext) {
-        setBtnNextAction(width, targrtUl)
+    if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnPrev' && 0 <= translatexValueNumber) {
+        targetTranslateX = translatexValueNumber - width
+        targrtUl.style.transform = `translateX(-${targetTranslateX}px)`
+    } else if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnNext' && maxWidth > translatexValueNumber) {
+        targetTranslateX = translatexValueNumber + width
+        targrtUl.style.transform = `translateX(-${targetTranslateX}px)`
+    } else {
+        return
     }
-    setBtnOnOff(width, widthUl)
 }
 
 function onSerch(e) {
