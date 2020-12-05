@@ -179,19 +179,36 @@ for (let i = 0; btnTurnSet.length > i; i++) {
 function onLeftListSlides(e) {
     let clickTarget = e.target;
     let topParent = clickTarget.parentNode.parentNode;
+    let topParentClass = topParent.getAttribute('class');
     let targetClass = clickTarget.getAttribute('class');
     let targrtUl = topParent.querySelector('ul');
-    let widthUl = targrtUl.offsetWidth;
+    let targrtLi = topParent.querySelector('ul li');
+    let targrtUlwidth = targrtUl.querySelectorAll('li');
+    let widthLi = targrtLi.offsetWidth;
+    let widthLiAll = widthLi * targrtUlwidth.length;
     let width = topParent.offsetWidth;
-    let maxWidth = widthUl - width
+    let maxWidth = widthLiAll - width
     let translateX = targrtUl.style.transform;
     let translateXValue = translateX.replace(/[^0-9]/g, '');
     let translatexValueNumber = Number(translateXValue);
 
+
     if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnPrev' && 0 <= translatexValueNumber) {
+        if (topParentClass === 'productList leftListSlide') {
+            targetTranslateX = translatexValueNumber - width - 16
+            targrtUl.style.transform = `translateX(-${targetTranslateX}px)`
+            return
+        }
         targetTranslateX = translatexValueNumber - width
         targrtUl.style.transform = `translateX(-${targetTranslateX}px)`
     } else if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnNext' && maxWidth > translatexValueNumber) {
+
+        if (topParentClass === 'productList leftListSlide') {
+            // console.log(getComputedStyle(targrtLi).paddingLeft)
+            targetTranslateX = translatexValueNumber + width + 16
+            targrtUl.style.transform = `translateX(-${targetTranslateX}px)`
+            return
+        }
         targetTranslateX = translatexValueNumber + width
         targrtUl.style.transform = `translateX(-${targetTranslateX}px)`
     } else {

@@ -194,8 +194,11 @@
   background-color: #6e8dd0;
   color: #fff;
 }
+.productList .item .img img {
+  vertical-align: top;
+}
 .productList .item .info {
-  margin-top: 6px;
+  margin-top: 12px;
   font-weight: 600;
   font-size: 0.7rem;
 }
@@ -319,6 +322,9 @@
   padding: 0 8px;
   vertical-align: top;
 }
+.productList.leftListSlide ul li:last-child {
+  margin-right: 12px;
+}
 .productList.leftListSlide .item {
   white-space: initial;
 }
@@ -419,7 +425,7 @@
 }
 .banner.leftListSlide li {
   display: inline-block;
-  width: 91.455vw;
+  width: 100%;
   padding: 0;
 }
 .banner.leftListSlide li .bannerTxt {
@@ -593,15 +599,16 @@
   }
   .productList.leftListSlide ul {
     display: inline-block;
-    margin: 0;
     vertical-align: top;
   }
   .productList.leftListSlide ul li {
-    padding: 0;
-    margin-left: 16px;
+    width: 25%;
   }
-  .productList.leftListSlide ul li:first-child {
-    margin-left: 0;
+  .productList.leftListSlide .item .img {
+    height: 230px;
+  }
+  .productList.leftListSlide ul li:last-child {
+    margin-right: 0;
   }
   .productList.leftListSlide .btnTurnSet {
     display: block;
@@ -611,8 +618,5 @@
   .banner {
     margin: 40px 0 0;
     border-radius: 3px;
-  }
-  .banner.leftListSlide li {
-    width: 1200px;
   }
 }
