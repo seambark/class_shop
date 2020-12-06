@@ -11,8 +11,8 @@ let btnPrev = document.querySelector('.mainSlide .btnPrev');
 let btnNext = document.querySelector('.mainSlide .btnNext');
 let btnStop = document.querySelector('.mainSlide .btnStop');
 let productList = document.querySelectorAll('.productList');
-let leftListSlides = document.querySelectorAll('.leftListSlide');
-let leftListSlide = document.querySelector('.leftListSlide');
+let listSlides = document.querySelectorAll('.listSlide');
+let bannerSlides = document.querySelectorAll('.bannerSlide');
 let crrentSlide;
 let autoStart;
 
@@ -30,7 +30,6 @@ serchBox.addEventListener('click', onSerch);
 
 function slideSetting() {
     slideLi.classList.add('on');
-
     crrentSlide = slideLi
 }
 slideSetting();
@@ -172,14 +171,15 @@ function onLike(e) {
     }
 }
 
-for (let i = 0; btnTurnSet.length > i; i++) {
-    btnTurnSet[i].addEventListener('click', onLeftListSlides);
-}
+for (let i = 0; listSlides.length > i; i++) {
+    let setBtnPrev = listSlides[i].querySelector('.btnPrev');
+    setBtnPrev.classList.add('off');
 
-function onLeftListSlides(e) {
+    listSlides[i].addEventListener('click', onListSlides);
+}
+function onListSlides(e) {
     let clickTarget = e.target;
     let topParent = clickTarget.parentNode.parentNode;
-    let topParentClass = topParent.getAttribute('class');
     let targetClass = clickTarget.getAttribute('class');
     let targrtUl = topParent.querySelector('ul');
     let targrtLi = topParent.querySelector('ul li');
@@ -187,30 +187,71 @@ function onLeftListSlides(e) {
     let widthLi = targrtLi.offsetWidth;
     let widthLiAll = widthLi * targrtUlwidth.length;
     let width = topParent.offsetWidth;
-    let maxWidth = widthLiAll - width
+    let lastCountOutwidth = width - widthLi;
+    let maxWidth = widthLiAll - width;
     let translateX = targrtUl.style.transform;
     let translateXValue = translateX.replace(/[^0-9]/g, '');
     let translatexValueNumber = Number(translateXValue);
+    let setPrev = clickTarget.previousElementSibling;
+    let setNext = clickTarget.nextElementSibling;
 
 
     if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnPrev' && 0 <= translatexValueNumber) {
-        if (topParentClass === 'productList leftListSlide') {
-            targetTranslateX = translatexValueNumber - width - 16
-            targrtUl.style.transform = `translateX(-${targetTranslateX}px)`
-            return
-        }
-        targetTranslateX = translatexValueNumber - width
-        targrtUl.style.transform = `translateX(-${targetTranslateX}px)`
-    } else if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnNext' && maxWidth > translatexValueNumber) {
+        let setNextClass = setNext.getAttribute('class');
+        setNextClass === 'btnNext off' && setNext.classList.remove('off');
 
-        if (topParentClass === 'productList leftListSlide') {
-            // console.log(getComputedStyle(targrtLi).paddingLeft)
-            targetTranslateX = translatexValueNumber + width + 16
-            targrtUl.style.transform = `translateX(-${targetTranslateX}px)`
-            return
-        }
-        targetTranslateX = translatexValueNumber + width
+        targetTranslateX = translatexValueNumber - lastCountOutwidth - 16;
+        targrtUl.style.transform = `translateX(-${targetTranslateX}px)`;
+        targetTranslateX === 0 && clickTarget.classList.add('off');
+    } else if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnNext' && maxWidth > translatexValueNumber) {
+        let setPrevClass = setPrev.getAttribute('class');
+        setPrevClass === 'btnPrev off' && setPrev.classList.remove('off');
+
+        targetTranslateX = translatexValueNumber + lastCountOutwidth + 16;
+        targrtUl.style.transform = `translateX(-${targetTranslateX}px)`;
+        maxWidth < targetTranslateX && clickTarget.classList.add('off');
+    } else {
+        return
+    }
+}
+
+for (let i = 0; bannerSlides.length > i; i++) {
+    let setBtnPrev = bannerSlides[i].querySelector('.btnPrev');
+    setBtnPrev.classList.add('off');
+
+    bannerSlides[i].addEventListener('click', onBannerSlides);
+}
+function onBannerSlides(e) {
+    let clickTarget = e.target;
+    let topParent = clickTarget.parentNode.parentNode;
+    let targetClass = clickTarget.getAttribute('class');
+    let targrtUl = topParent.querySelector('ul');
+    let targrtLi = topParent.querySelector('ul li');
+    let targrtUlwidth = targrtUl.querySelectorAll('li');
+    let widthLi = targrtLi.offsetWidth;
+    let widthLiAll = widthLi * targrtUlwidth.length;
+    let width = topParent.offsetWidth;
+    let maxWidth = widthLiAll - width;
+    let translateX = targrtUl.style.transform;
+    let translateXValue = translateX.replace(/[^0-9]/g, '');
+    let translatexValueNumber = Number(translateXValue);
+    let setPrev = clickTarget.previousElementSibling;
+    let setNext = clickTarget.nextElementSibling;
+
+    if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnPrev' && 0 <= translatexValueNumber) {
+        let setNextClass = setNext.getAttribute('class');
+        setNextClass === 'btnNext off' && setNext.classList.remove('off');
+
+        targetTranslateX = translatexValueNumber - width;
         targrtUl.style.transform = `translateX(-${targetTranslateX}px)`
+        targetTranslateX === 0 && clickTarget.classList.add('off');
+    } else if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnNext' && maxWidth > translatexValueNumber) {
+        let setPrevClass = setPrev.getAttribute('class');
+        setPrevClass === 'btnPrev off' && setPrev.classList.remove('off');
+
+        targetTranslateX = translatexValueNumber + width;
+        targrtUl.style.transform = `translateX(-${targetTranslateX}px)`;
+        maxWidth === targetTranslateX && clickTarget.classList.add('off');
     } else {
         return
     }
@@ -234,13 +275,10 @@ function onGotoTop() {
 function onScrollCheck() {
     let scrollPosition = document.documentElement.scrollTop;
 
-    if (scrollPosition < currentScroll) {
+    if (scrollPosition < currentScroll && scrollPosition !== 0) {
         btnGotoTop.classList.add('on');
     } else {
         btnGotoTop.classList.remove('on');
-
     }
     currentScroll = scrollPosition
 }
-
-

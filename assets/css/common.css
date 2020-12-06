@@ -70,13 +70,13 @@ i {
 }
 
 section {
-  padding: 20px 0;
+  padding: 35px 0;
 }
 .wrap {
   min-width: 360px;
 }
 #content {
-  padding: 20px;
+  padding: 0 20px;
 }
 
 /* skipNav */
@@ -229,7 +229,7 @@ section {
 .btnGotoTop {
   display: none;
   position: fixed;
-  right: 20px;
+  right: -20px;
   bottom: 20px;
   width: 40px;
   height: 40px;
@@ -237,9 +237,11 @@ section {
   color: #000;
   font-size: 36px;
   z-index: 100;
+  transition: all 0.5s;
 }
 .btnGotoTop.on {
   display: block;
+  right: 20px;
 }
 .btnGotoTop i {
   display: block;
@@ -305,7 +307,16 @@ footer .companyInfo .snsList .instagram {
     max-width: 1200px;
     min-width: 1200px;
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 75px 0;
+  }
+  section {
+    padding: 45px 0;
+  }
+  section:first-child {
+    padding-top: 0;
+  }
+  section:last-of-type {
+    padding-bottom: 0;
   }
 
   /* header */
