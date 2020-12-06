@@ -23,11 +23,15 @@
 .mainSlide li.on {
   opacity: 1;
 }
+.mainSlide ul li.on a {
+  right: 0;
+  transition: all 0.7s;
+}
 .mainSlide ul li a {
   display: block;
   position: absolute;
   top: 0;
-  left: 0;
+  right: -100%;
   width: 100%;
   height: 100%;
   padding: 40px 20px 60px;
@@ -136,7 +140,7 @@
   background-color: lavender;
 }
 .mainSlide .controlSlide .timeBar.on .time {
-  animation: timemove 5s infinite;
+  animation: timemove 7s infinite;
 }
 @keyframes timemove {
   0% {

@@ -101,13 +101,13 @@ function btnStopAction(button) {
         timebarAction()
     } else {
         button.classList.remove('play');
-        autoStart = setInterval(autoPlay, 5000);
+        autoStart = setInterval(autoPlay, 7000);
         timebarAction()
     }
 }
 
 let pageNow = paging.querySelector(".now")
-autoStart = setInterval(autoPlay, 5000);
+autoStart = setInterval(autoPlay, 7000);
 function autoPlay() {
     let next = crrentSlide.nextElementSibling;
     btnNextAction(next);
