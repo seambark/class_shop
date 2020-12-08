@@ -17,6 +17,7 @@ let crrentSlide;
 let autoStart;
 
 let btnTurnSet = document.querySelectorAll('.btnTurnSet');
+let listSlideBtnSet = document.querySelectorAll('.listSlide .btnTurnSet');
 
 let serchBox = document.querySelector('.serchBox');
 
@@ -162,20 +163,18 @@ function onLike(e) {
     let likeData = like.getAttribute('class');
     if (likeData === 'btnLike on') {
         like.classList.remove('on')
-        like.setAttribute('aria-label', '좋아요 체크하기')
-        like.setAttribute('title', '좋아요 체크하기')
+        like.textContent = "좋아요 체크하기";
     } else if (likeData === 'btnLike') {
         like.classList.add('on')
-        like.setAttribute('aria-label', '좋아요 되어 있음, 좋아요 해제하기')
-        like.setAttribute('title', '좋아요 해제하기')
+        like.textContent = "좋아요 해제하기";
     }
 }
 
-for (let i = 0; listSlides.length > i; i++) {
-    let setBtnPrev = listSlides[i].querySelector('.btnPrev');
+for (let i = 0; listSlideBtnSet.length > i; i++) {
+    let setBtnPrev = listSlideBtnSet[i].querySelector('.btnPrev');
     setBtnPrev.classList.add('off');
 
-    listSlides[i].addEventListener('click', onListSlides);
+    listSlideBtnSet[i].addEventListener('click', onListSlides);
 }
 function onListSlides(e) {
     let clickTarget = e.target;
@@ -187,7 +186,6 @@ function onListSlides(e) {
     let widthLi = targrtLi.offsetWidth;
     let widthLiAll = widthLi * targrtUlwidth.length;
     let width = topParent.offsetWidth;
-    let lastCountOutwidth = width - widthLi;
     let maxWidth = widthLiAll - width;
     let translateX = targrtUl.style.transform;
     let translateXValue = translateX.replace(/[^0-9]/g, '');
@@ -200,14 +198,14 @@ function onListSlides(e) {
         let setNextClass = setNext.getAttribute('class');
         setNextClass === 'btnNext off' && setNext.classList.remove('off');
 
-        targetTranslateX = translatexValueNumber - lastCountOutwidth - 16;
+        targetTranslateX = translatexValueNumber - width - 16;
         targrtUl.style.transform = `translateX(-${targetTranslateX}px)`;
         targetTranslateX === 0 && clickTarget.classList.add('off');
     } else if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnNext' && maxWidth > translatexValueNumber) {
         let setPrevClass = setPrev.getAttribute('class');
         setPrevClass === 'btnPrev off' && setPrev.classList.remove('off');
 
-        targetTranslateX = translatexValueNumber + lastCountOutwidth + 16;
+        targetTranslateX = translatexValueNumber + width + 16;
         targrtUl.style.transform = `translateX(-${targetTranslateX}px)`;
         maxWidth < targetTranslateX && clickTarget.classList.add('off');
     } else {
@@ -221,6 +219,12 @@ for (let i = 0; bannerSlides.length > i; i++) {
 
     bannerSlides[i].addEventListener('click', onBannerSlides);
 }
+// function bannerSlidesCount(){
+//     let slideCount = bannerSlides.length;
+// }
+// function bannerSlidesOuto(){
+//     let slideCount = bannerSlides.length;
+// }
 function onBannerSlides(e) {
     let clickTarget = e.target;
     let topParent = clickTarget.parentNode.parentNode;

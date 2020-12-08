@@ -62,13 +62,14 @@ button {
   cursor: pointer;
   font-size: 1rem;
 }
+a:before,
+button:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
 img {
   width: 100%;
 }
-i {
-  pointer-events: none;
-}
-
 section {
   padding: 35px 0;
 }
@@ -117,7 +118,7 @@ section {
   top: 18px;
 }
 .header .logo a {
-  color: black;
+  color: #000;
   font-weight: 600;
   font-size: 2.6rem;
   line-height: 1em;
@@ -128,9 +129,16 @@ section {
   vertical-align: top;
 }
 .header .serchBox .btnSerchOn {
+  overflow: hidden;
   display: block;
   width: 40px;
   height: 40px;
+  color: transparent;
+}
+.header .serchBox .btnSerchOn::before {
+  content: "\f002";
+  color: #000;
+  line-height: 40px;
 }
 .header .serchBox .serchInner {
   display: none;
@@ -155,8 +163,12 @@ section {
   width: 45px;
   height: 100%;
   padding: 10px;
-  background-color: transparent;
+  color: transparent;
   font-size: 1.2rem;
+}
+.header .serchInner .serch .btnSerch::before {
+  content: "\f002";
+  color: #000;
 }
 .header .serchInner .serch .btnSerch span {
   width: 0;
@@ -187,16 +199,21 @@ section {
   vertical-align: top;
 }
 .header .loginBox .alarm {
+  overflow: hidden;
   position: relative;
+  width: 40px;
+  height: 40px;
+  color: transparent;
+  text-align: center;
 }
-.header .loginBox .alarm.on i {
+.header .loginBox .alarm::before {
+  content: "\f0f3";
+  color: #000;
+  font-weight: 400;
+}
+.header .loginBox .alarm.on::before {
   color: #f33340;
   font-weight: 900;
-}
-.header .loginBox .alarm.on::after {
-  content: "새 알림";
-  font-size: 0;
-  line-height: 0;
 }
 .gnb {
   position: relative;
@@ -204,13 +221,19 @@ section {
   padding: 0 0 0 40px;
 }
 .gnb .gnbAll {
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
   width: 40px;
   height: 40px;
+  color: transparent;
   font-size: 1.05rem;
   line-height: 40px;
+}
+.gnb .gnbAll::before {
+  content: "\f0c9";
+  color: #000;
 }
 .gnb ul {
   white-space: nowrap;
@@ -229,25 +252,37 @@ section {
 .btnGotoTop {
   display: none;
   position: fixed;
-  right: -20px;
+  right: -40px;
   bottom: 20px;
   width: 40px;
   height: 40px;
   padding: 0;
-  color: #000;
+  color: transparent;
   font-size: 36px;
   z-index: 100;
-  transition: all 0.5s;
+}
+.btnGotoTop::before {
+  display: block;
+  content: "\f35b";
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000;
 }
 .btnGotoTop.on {
   display: block;
   right: 20px;
+  animation: topOn 0.3s;
 }
-.btnGotoTop i {
-  display: block;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  background-color: #fff;
+@keyframes topOn {
+  0% {
+    display: block;
+    right: -40px;
+  }
+  100% {
+    right: 20px;
+    display: none;
+  }
 }
 
 /* footer */
@@ -288,18 +323,33 @@ footer .companyInfo .snsList li {
   vertical-align: top;
 }
 footer .companyInfo .snsList a {
+  overflow: hidden;
   display: inline-block;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   background-color: #000;
-  color: #fff;
-  font-size: 0.95rem;
+  color: transparent;
   line-height: 30px;
   text-align: center;
 }
-footer .companyInfo .snsList .instagram {
+footer .companyInfo .snsList a::before {
+  display: inline-block;
+  width: 100%;
+  color: #fff;
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+footer .companyInfo .snsList .facebook::before {
+  content: "\f39e";
+}
+footer .companyInfo .snsList .instagram::before {
+  content: "\f16d";
   font-size: 1.1rem;
+}
+footer .companyInfo .snsList .youtube::before {
+  content: "\f167";
 }
 
 @media all and (min-width: 1200px) {
@@ -352,13 +402,19 @@ footer .companyInfo .snsList .instagram {
     text-align: left;
   }
   .header .serchInner .btnClose {
+    overflow: hidden;
     position: absolute;
     right: 15px;
     bottom: 12px;
     height: 30px;
     width: 30px;
-    color: #fff;
+    color: transparent;
     font-size: 1.2rem;
+    line-height: 30px;
+  }
+  .btnClose::before {
+    content: "\f057";
+    color: #fff;
   }
 }
 @media all and (min-width: 801px) {
