@@ -163,12 +163,6 @@
   top: 0;
   right: 20px;
 }
-.mainSlide .controlSlide .btnSlide button {
-  width: 40px;
-  height: 40px;
-  font-size: 1.6rem;
-  line-height: 40px;
-}
 .titArea {
   margin-bottom: 30px;
 }
@@ -204,11 +198,6 @@
 }
 .productList .item .img img {
   vertical-align: top;
-  transition: all 0.2s;
-}
-.productList .item a:hover .img img,
-.productList .item a:focus .img img {
-  transform: scale(1.1);
 }
 .productList .item .info {
   margin-top: 12px;
@@ -302,28 +291,10 @@
   font-weight: 500;
   font-size: 0.8rem;
 }
-.productList .item .btnLike {
-  overflow: hidden;
-  display: block;
+.productList .item .btnIconLike {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 40px;
-  height: 40px;
-  color: transparent;
-}
-.productList .item .btnLike::before {
-  content: "\f004";
-  color: #fff;
-  font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 40px;
-  text-shadow: 2px 1px 6px rgba(0, 0, 0, 0.4);
-}
-.productList .item .btnLike.on::before,
-.productList .item .btnLike:hover::before {
-  color: #f33340;
-  font-weight: 900;
 }
 .productList.listSlide {
   overflow-y: auto;
@@ -439,90 +410,6 @@ section .banner {
   transition: all 0.7s;
 }
 
-/* button */
-.btnMore,
-.btnTalk {
-  display: block;
-  width: 100%;
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #6e8dd0;
-  border-radius: 3px;
-  color: #6e8dd0;
-  text-align: center;
-}
-.btnTalk::before {
-  content: "\f4ad";
-  display: inline-block;
-  margin-right: 5px;
-}
-.btnPrev,
-.btnNext,
-.btnStop {
-  overflow: hidden;
-  color: transparent;
-}
-.btnPrev::before {
-  content: "\f104";
-  color: #fff;
-}
-.btnNext::before {
-  content: "\f105";
-  color: #fff;
-}
-.btnStop::before {
-  content: "\f28d";
-  color: #fff;
-}
-.btnStop.play::before {
-  content: "\f144";
-}
-
-.btnTurnSet {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 57px;
-}
-.btnTurnSet button {
-  position: absolute;
-  top: 0;
-  padding: 0 10px;
-  width: 35px;
-  height: 100%;
-  border-radius: 0 8px 8px 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: transparent;
-  text-align: center;
-  transition: all 0.5s;
-}
-.btnTurnSet button::before {
-  font-size: 2rem;
-  line-height: 57px;
-}
-.btnTurnSet .btnPrev {
-  left: 0;
-}
-.btnTurnSet .btnNext {
-  right: 0;
-  border-radius: 8px 0 0 8px;
-}
-
-.btnTurnSet .btnPrev:hover,
-.btnTurnSet .btnPrev:focus,
-.btnTurnSet .btnNext:hover,
-.btnTurnSet .btnNext:focus {
-  transform: scale(1.1);
-  background-color: rgba(0, 0, 0, 0.8);
-}
-.btnTurnSet .btnPrev.off,
-.btnTurnSet .btnNext.off {
-  pointer-events: none;
-  background-color: rgba(0, 0, 0, 0.1);
-}
 @media (min-width: 540px) and (max-width: 800px) {
   .mainSlide {
     height: 130vmin;
@@ -633,13 +520,14 @@ section .banner {
   }
   .productList ul li .img img {
     height: 100%;
+    transition: all 0.2s;
+  }
+  .productList .item a:hover .img img,
+  .productList .item a:focus .img img {
+    transform: scale(1.1);
   }
   .productList .item .tit {
     height: 42px;
-  }
-  .productList .item .btnLike:focus::before {
-    color: #f33340;
-    font-weight: 900;
   }
   .productList.listSlide {
     overflow: hidden;

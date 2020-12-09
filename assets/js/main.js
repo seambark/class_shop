@@ -7,9 +7,9 @@ let slideImgs = slide.querySelectorAll('.slideImg');
 let paging = document.querySelector('.paging');
 let timeBar = document.querySelector('.timeBar');
 let btnSlide = document.querySelector('.btnSlide');
-let btnPrev = document.querySelector('.mainSlide .btnPrev');
-let btnNext = document.querySelector('.mainSlide .btnNext');
-let btnStop = document.querySelector('.mainSlide .btnStop');
+let btnIconPrev = document.querySelector('.mainSlide .btnIconPrev');
+let btnIconNext = document.querySelector('.mainSlide .btnIconNext');
+let btnIconStop = document.querySelector('.mainSlide .btnIconStop');
 let productList = document.querySelectorAll('.productList');
 let listSlides = document.querySelectorAll('.listSlide');
 let bannerSlides = document.querySelectorAll('.bannerSlide');
@@ -21,11 +21,11 @@ let listSlideBtnSet = document.querySelectorAll('.listSlide .btnTurnSet');
 
 let serchBox = document.querySelector('.serchBox');
 
-let btnGotoTop = document.querySelector('.btnGotoTop');
+let btnIconGotoTop = document.querySelector('.btnIconGotoTop');
 let currentScroll;
 
 window.addEventListener('scroll', onScrollCheck)
-btnGotoTop.addEventListener('click', onGotoTop);
+btnIconGotoTop.addEventListener('click', onGotoTop);
 mainSlide.addEventListener('click', onMainSlide);
 serchBox.addEventListener('click', onSerch);
 
@@ -76,7 +76,7 @@ function timeBarStop() {
     timeBar.classList.remove('on')
 }
 
-function btnPrevAction(list) {
+function btnIconPrevAction(list) {
     let last = slide.lastElementChild;
     if (slideLi && list === undefined || list === null) {
         slidOn(last)
@@ -85,7 +85,7 @@ function btnPrevAction(list) {
     slidOn(list)
 }
 
-function btnNextAction(list) {
+function btnIconNextAction(list) {
     if (slideLiLast && list === undefined || list === null) {
         slidOn(slideLi)
         return
@@ -93,10 +93,10 @@ function btnNextAction(list) {
     slidOn(list)
 }
 
-function btnStopAction(button) {
+function btnIconStopAction(button) {
     let btnClass = button.getAttribute('class');
 
-    if (btnClass === 'btnStop') {
+    if (btnClass === 'btnIconStop') {
         button.classList.add('play');
         clearInterval(autoStart);
         timebarAction()
@@ -111,7 +111,7 @@ let pageNow = paging.querySelector(".now")
 autoStart = setInterval(autoPlay, 7000);
 function autoPlay() {
     let next = crrentSlide.nextElementSibling;
-    btnNextAction(next);
+    btnIconNextAction(next);
     pagingNow(pageNow);
     timeBar.classList.add('on');
 }
@@ -141,16 +141,16 @@ function keyControl(e) {
 function onMainSlide(e) {
     let clickTarget = e.target;
 
-    if (clickTarget === btnPrev) {
+    if (clickTarget === btnIconPrev) {
         let prev = crrentSlide.previousElementSibling;
-        btnPrevAction(prev)
+        btnIconPrevAction(prev)
         timeBarStop()
-    } else if (clickTarget === btnNext) {
+    } else if (clickTarget === btnIconNext) {
         let next = crrentSlide.nextElementSibling;
-        btnNextAction(next)
+        btnIconNextAction(next)
         timeBarStop()
-    } else if (clickTarget === btnStop) {
-        btnStopAction(btnStop)
+    } else if (clickTarget === btnIconStop) {
+        btnIconStopAction(btnIconStop)
     }
     pagingNow(pageNow)
 }
@@ -161,18 +161,18 @@ for (let i = 0; productList.length > i; i++) {
 function onLike(e) {
     let like = e.target;
     let likeData = like.getAttribute('class');
-    if (likeData === 'btnLike on') {
+    if (likeData === 'btnIconLike on') {
         like.classList.remove('on')
         like.textContent = "좋아요 체크하기";
-    } else if (likeData === 'btnLike') {
+    } else if (likeData === 'btnIconLike') {
         like.classList.add('on')
         like.textContent = "좋아요 해제하기";
     }
 }
 
 for (let i = 0; listSlideBtnSet.length > i; i++) {
-    let setBtnPrev = listSlideBtnSet[i].querySelector('.btnPrev');
-    setBtnPrev.classList.add('off');
+    let setbtnIconPrev = listSlideBtnSet[i].querySelector('.btnIconPrev');
+    setbtnIconPrev.classList.add('off');
 
     listSlideBtnSet[i].addEventListener('click', onListSlides);
 }
@@ -194,16 +194,16 @@ function onListSlides(e) {
     let setNext = clickTarget.nextElementSibling;
 
 
-    if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnPrev' && 0 <= translatexValueNumber) {
+    if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnIconPrev' && 0 <= translatexValueNumber) {
         let setNextClass = setNext.getAttribute('class');
-        setNextClass === 'btnNext off' && setNext.classList.remove('off');
+        setNextClass === 'btnIconNext off' && setNext.classList.remove('off');
 
         targetTranslateX = translatexValueNumber - width - 16;
         targrtUl.style.transform = `translateX(-${targetTranslateX}px)`;
         targetTranslateX === 0 && clickTarget.classList.add('off');
-    } else if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnNext' && maxWidth > translatexValueNumber) {
+    } else if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnIconNext' && maxWidth > translatexValueNumber) {
         let setPrevClass = setPrev.getAttribute('class');
-        setPrevClass === 'btnPrev off' && setPrev.classList.remove('off');
+        setPrevClass === 'btnIconPrev off' && setPrev.classList.remove('off');
 
         targetTranslateX = translatexValueNumber + width + 16;
         targrtUl.style.transform = `translateX(-${targetTranslateX}px)`;
@@ -214,8 +214,8 @@ function onListSlides(e) {
 }
 
 for (let i = 0; bannerSlides.length > i; i++) {
-    let setBtnPrev = bannerSlides[i].querySelector('.btnPrev');
-    setBtnPrev.classList.add('off');
+    let setbtnIconPrev = bannerSlides[i].querySelector('.btnIconPrev');
+    setbtnIconPrev.classList.add('off');
 
     bannerSlides[i].addEventListener('click', onBannerSlides);
 }
@@ -242,16 +242,16 @@ function onBannerSlides(e) {
     let setPrev = clickTarget.previousElementSibling;
     let setNext = clickTarget.nextElementSibling;
 
-    if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnPrev' && 0 <= translatexValueNumber) {
+    if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnIconPrev' && 0 <= translatexValueNumber) {
         let setNextClass = setNext.getAttribute('class');
-        setNextClass === 'btnNext off' && setNext.classList.remove('off');
+        setNextClass === 'btnIconNext off' && setNext.classList.remove('off');
 
         targetTranslateX = translatexValueNumber - width;
         targrtUl.style.transform = `translateX(-${targetTranslateX}px)`
         targetTranslateX === 0 && clickTarget.classList.add('off');
-    } else if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnNext' && maxWidth > translatexValueNumber) {
+    } else if (clickTarget.tagName === 'BUTTON' && targetClass === 'btnIconNext' && maxWidth > translatexValueNumber) {
         let setPrevClass = setPrev.getAttribute('class');
-        setPrevClass === 'btnPrev off' && setPrev.classList.remove('off');
+        setPrevClass === 'btnIconPrev off' && setPrev.classList.remove('off');
 
         targetTranslateX = translatexValueNumber + width;
         targrtUl.style.transform = `translateX(-${targetTranslateX}px)`;
@@ -265,9 +265,9 @@ function onSerch(e) {
     let serchBtn = e.target;
     let serchBoxClass = serchBtn.getAttribute('class');
 
-    if (serchBoxClass === 'btnSerchOn') {
+    if (serchBoxClass === 'btnIconSerchOn') {
         serchBox.classList.add('on')
-    } else if (serchBoxClass === 'btnClose') {
+    } else if (serchBoxClass === 'btnIconClose') {
         serchBox.classList.remove('on')
     }
 }
@@ -280,9 +280,9 @@ function onScrollCheck() {
     let scrollPosition = document.documentElement.scrollTop;
 
     if (scrollPosition < currentScroll && scrollPosition !== 0) {
-        btnGotoTop.classList.add('on');
+        btnIconGotoTop.classList.add('on');
     } else {
-        btnGotoTop.classList.remove('on');
+        btnIconGotoTop.classList.remove('on');
     }
     currentScroll = scrollPosition
 }

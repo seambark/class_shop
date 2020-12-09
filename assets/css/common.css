@@ -128,18 +128,6 @@ section {
   display: inline-block;
   vertical-align: top;
 }
-.header .serchBox .btnSerchOn {
-  overflow: hidden;
-  display: block;
-  width: 40px;
-  height: 40px;
-  color: transparent;
-}
-.header .serchBox .btnSerchOn::before {
-  content: "\f002";
-  color: #000;
-  line-height: 40px;
-}
 .header .serchBox .serchInner {
   display: none;
 }
@@ -155,27 +143,12 @@ section {
   font-size: 1rem;
   line-height: 40px;
 }
-.header .serchInner .serch .btnSerch {
-  display: inline-block;
+.header .serchInner .serch .btnIconSerch {
   position: absolute;
   top: 0;
   right: 0;
   width: 45px;
   height: 100%;
-  padding: 10px;
-  color: transparent;
-  font-size: 1.2rem;
-}
-.header .serchInner .serch .btnSerch::before {
-  content: "\f002";
-  color: #000;
-}
-.header .serchInner .serch .btnSerch span {
-  width: 0;
-  height: 0;
-  font-size: 0;
-  text-indent: -99999px;
-  line-height: 0;
 }
 .header .serchInner #searchTag li {
   display: inline-block;
@@ -197,23 +170,6 @@ section {
   padding: 10px;
   cursor: pointer;
   vertical-align: top;
-}
-.header .loginBox .alarm {
-  overflow: hidden;
-  position: relative;
-  width: 40px;
-  height: 40px;
-  color: transparent;
-  text-align: center;
-}
-.header .loginBox .alarm::before {
-  content: "\f0f3";
-  color: #000;
-  font-weight: 400;
-}
-.header .loginBox .alarm.on::before {
-  color: #f33340;
-  font-weight: 900;
 }
 .gnb {
   position: relative;
@@ -247,42 +203,6 @@ section {
   display: block;
   padding: 0 10px;
   line-height: 40px;
-}
-
-.btnGotoTop {
-  display: none;
-  position: fixed;
-  right: -40px;
-  bottom: 20px;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  color: transparent;
-  font-size: 36px;
-  z-index: 100;
-}
-.btnGotoTop::before {
-  display: block;
-  content: "\f35b";
-  border: 1px solid #fff;
-  border-radius: 50%;
-  background-color: #fff;
-  color: #000;
-}
-.btnGotoTop.on {
-  display: block;
-  right: 20px;
-  animation: topOn 0.3s;
-}
-@keyframes topOn {
-  0% {
-    display: block;
-    right: -40px;
-  }
-  100% {
-    right: 20px;
-    display: none;
-  }
 }
 
 /* footer */
@@ -341,15 +261,168 @@ footer .companyInfo .snsList a::before {
   font-weight: 400;
   font-size: 0.95rem;
 }
-footer .companyInfo .snsList .facebook::before {
+
+/* button */
+.btnMore,
+.btnTalk {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #6e8dd0;
+  border-radius: 3px;
+  color: #6e8dd0;
+  text-align: center;
+}
+.btnTalk::before {
+  content: "\f4ad";
+  display: inline-block;
+  margin-right: 5px;
+}
+
+a[class^="btnIcon"],
+button[class^="btnIcon"] {
+  overflow: hidden;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+}
+a[class^="btnIcon"]::before,
+button[class^="btnIcon"]::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btnIconPrev::before {
+  content: "\f104";
+  color: #fff;
+  font-size: 1.6rem;
+}
+.btnIconNext::before {
+  content: "\f105";
+  color: #fff;
+  font-size: 1.6rem;
+}
+.btnIconStop::before {
+  content: "\f28d";
+  color: #fff;
+  font-size: 1.6rem;
+}
+.btnIconStop.play::before {
+  content: "\f144";
+  color: #fff;
+  font-size: 1.6rem;
+}
+.btnTurnSet {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 57px;
+}
+.btnTurnSet button {
+  position: absolute;
+  top: 0;
+  width: 35px;
+  height: 100%;
+  border-radius: 0 8px 8px 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+.btnTurnSet button::before {
+  font-size: 2rem;
+}
+.btnTurnSet .btnIconPrev {
+  left: 0;
+}
+.btnTurnSet .btnIconNext {
+  right: 0;
+  border-radius: 8px 0 0 8px;
+}
+.btnTurnSet .btnIconPrev.off,
+.btnTurnSet .btnIconNext.off {
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btnIconSerch::before,
+.btnIconSerchOn::before {
+  content: "\f002";
+  color: #000;
+  font-size: 1.2rem;
+}
+.btnIconAlarm::before {
+  content: "\f0f3";
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.btnIconAlarm.on::before {
+  color: #f33340;
+  font-weight: 900;
+}
+.btnIconLike::before {
+  content: "\f004";
+  font-weight: 400;
+  text-shadow: 2px 1px 6px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 1.6rem;
+}
+.btnIconLike.on::before {
+  color: #f33340;
+  font-weight: 900;
+}
+
+.btnIconFacebook::before {
   content: "\f39e";
 }
-footer .companyInfo .snsList .instagram::before {
+.btnIconInstagram::before {
   content: "\f16d";
   font-size: 1.1rem;
 }
-footer .companyInfo .snsList .youtube::before {
+.btnIconYoutube::before {
   content: "\f167";
+}
+
+/* 탑으로가기 */
+body .btnIconGotoTop {
+  display: none;
+  position: fixed;
+  right: -40px;
+  bottom: 20px;
+  z-index: 100;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.btnIconGotoTop::before {
+  display: block;
+  content: "\f35b";
+  color: #000;
+  font-size: 36px;
+}
+.btnIconGotoTop.on {
+  display: block;
+  right: 20px;
+  animation: topOn 0.3s;
+}
+@keyframes topOn {
+  0% {
+    display: block;
+    right: -40px;
+  }
+  100% {
+    right: 20px;
+    display: none;
+  }
 }
 
 @media all and (min-width: 1200px) {
@@ -381,10 +454,24 @@ footer .companyInfo .snsList .youtube::before {
     max-width: 1200px;
     margin: 0 auto;
   }
+
+  /* button */
+  .btnTurnSet .btnIconPrev:hover,
+  .btnTurnSet .btnIconPrev:focus,
+  .btnTurnSet .btnIconNext:hover,
+  .btnTurnSet .btnIconNext:focus {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .btnTurnSet .btnIconPrev.off:focus,
+  .btnTurnSet .btnIconNext.off:focus {
+    transform: scale(1);
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 }
 
 @media all and (max-width: 800px) {
-  .header .serchBox.on .btnSerchOn {
+  .header .serchBox.on .btnIconSerchOn {
     display: none;
   }
   .header .serchBox.on .serchInner {
@@ -401,7 +488,7 @@ footer .companyInfo .snsList .youtube::before {
     margin-top: 20px;
     text-align: left;
   }
-  .header .serchInner .btnClose {
+  .header .serchInner .btnIconClose {
     overflow: hidden;
     position: absolute;
     right: 15px;
@@ -412,7 +499,7 @@ footer .companyInfo .snsList .youtube::before {
     font-size: 1.2rem;
     line-height: 30px;
   }
-  .btnClose::before {
+  .btnIconClose::before {
     content: "\f057";
     color: #fff;
   }
@@ -433,7 +520,7 @@ footer .companyInfo .snsList .youtube::before {
     display: inline-block;
     margin-left: 15px;
   }
-  .header .serchBox .btnSerchOn {
+  .header .serchBox .btnIconSerchOn {
     display: none;
   }
   .header .serchBox .serchInner {
@@ -449,7 +536,7 @@ footer .companyInfo .snsList .youtube::before {
     bottom: -35px;
     left: 0;
   }
-  .header .serchInner .btnClose {
+  .header .serchInner .btnIconClose {
     display: none;
   }
   .header .loginBox {
