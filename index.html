@@ -7,16 +7,16 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
   <script src="./assets/js/main.js" defer></script>
-  <title>CLASS# 내가 원하는 클래스, 클래스#!</title>
+  <title>CLASS# 내가 원하는 클래스!</title>
 </head>
 
 <body>
+  <ul class="skipNav">
+    <li><a href="#content">본문 바로가기</a></li>
+    <li><a href="#gnb">메인메뉴 바로가기</a></li>
+    <li><a href="#footer">푸터메뉴 바로가기</a></li>
+  </ul>
   <div class="wrap">
-    <ul class="skipNav">
-      <li><a href="#gnb">메인메뉴 바로가기</a></li>
-      <li><a href="#content">본문 바로가기</a></li>
-      <li><a href="#footer">하위메뉴 바로가기</a></li>
-    </ul>
     <header class="headerArea">
       <div class="header">
         <h1 class="logo"><a href="#">CLASS#</a></h1>
@@ -58,7 +58,7 @@
         </div>
       </div>
       <nav id="gnb" class="gnb">
-        <button type="button" class="gnbAll">메뉴 전체보기</button>
+        <button type="button" class="btnGnbAll">메뉴 전체보기</button>
         <ul>
           <li><a href="#">크리에이티브</a></li>
           <li><a href="#">머니</a></li>
@@ -547,6 +547,69 @@
         </div>
       </div>
     </footer>
+  </div>
+
+  <div class="popupFull" role="dialog" aria-labelledby="gnbTitle" aria-modal="true">
+    <div class="popupCon">
+      <strong id="popupTitle" class="hide">전체 메뉴</strong>
+      <div class="gnbAll">
+        <dl>
+          <dt><a href="#">크리에이티브</a></dt>
+          <dd><a href="#">이색취미/공예</a></dd>
+          <dd><a href="#">사진</a></dd>
+          <dd><a href="#">취미미술</a></dd>
+          <dd><a href="#">작곡/디제잉/보컬</a></dd>
+          <dd><a href="#">캘리그래피</a></dd>
+          <dd><a href="#">조향/캔들/비누</a></dd>
+          <dd><a href="#">가죽/목공/도예</a></dd>
+        </dl>
+        <dl>
+          <dt><a href="#">머니</a></dt>
+          <dd><a href="#">투잡</a></dd>
+          <dd><a href="#">마케팅</a></dd>
+          <dd><a href="#">주식투자/금융지식</a></dd>
+          <dd><a href="#">부동산</a></dd>
+          <dd><a href="#">창업</a></dd>
+        </dl>
+        <dl>
+          <dt><a href="#">커리어</a></dt>
+          <dd><a href="#">실무역량</a></dd>
+          <dd><a href="#">마케팅</a></dd>
+          <dd><a href="#">취업/이직/진로</a></dd>
+          <dd><a href="#">엑셀/파워포인트</a></dd>
+          <dd><a href="#">스피치</a></dd>
+          <dd><a href="#">데이터분석</a></dd>
+          <dd><a href="#">자격증/시험</a></dd>
+        </dl>
+        <dl>
+          <dt><a href="#">개발</a></dt>
+          <dd><a href="#">웹개발</a></dd>
+          <dd><a href="#">앱개발</a></dd>
+          <dd><a href="#">컴퓨터공학</a></dd>
+        </dl>
+        <dl>
+          <dt><a href="#">요리/음료</a></dt>
+          <dd><a href="#">요리/베이킹</a></dd>
+          <dd><a href="#">커피/차/술</a></dd>
+        </dl>
+        <dl>
+          <dt><a href="#">건강</a></dt>
+          <dd><a href="#">PT/GX</a></dd>
+          <dd><a href="#">댄스</a></dd>
+          <dd><a href="#">무용</a></dd>
+          <dd><a href="#">스포츠/레저</a></dd>
+          <dd><a href="#">이색 액티비티</a></dd>
+        </dl>
+        <dl>
+          <dt><a href="#">뷰티</a></dt>
+          <dd><a href="#">메이크업</a></dd>
+          <dd><a href="#">퍼스널컬러</a></dd>
+          <dd><a href="#">패션</a></dd>
+          <dd><a href="#">셀프케어</a></dd>
+        </dl>
+      </div>
+      <button type="button" class="btnIconClose">전체메뉴 닫기</button>
+    </div>
   </div>
 </body>
 

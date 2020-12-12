@@ -24,10 +24,23 @@ let serchBox = document.querySelector('.serchBox');
 let btnIconGotoTop = document.querySelector('.btnIconGotoTop');
 let currentScroll;
 
+let btnGnbAll = document.querySelector('.btnGnbAll');
+let popupFull = document.querySelector('.popupFull');
+let popupClose = document.querySelector('.popupFull .btnIconClose');
+
 window.addEventListener('scroll', onScrollCheck)
 btnIconGotoTop.addEventListener('click', onGotoTop);
 mainSlide.addEventListener('click', onMainSlide);
 serchBox.addEventListener('click', onSerch);
+btnGnbAll.addEventListener('click', onPopupFull);
+popupClose.addEventListener('click', onPopupClose);
+
+function onPopupFull() {
+    popupFull.classList.add('on');
+}
+function onPopupClose() {
+    popupFull.classList.remove('on');
+}
 
 function slideSetting() {
     slideLi.classList.add('on');

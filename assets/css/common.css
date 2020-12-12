@@ -80,6 +80,16 @@ section {
   padding: 0 20px;
 }
 
+.hide {
+  overflow: hidden;
+  position: absolute;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  font: 0;
+  line-height: 0;
+}
+
 /* skipNav */
 .skipNav {
   position: relative;
@@ -176,7 +186,7 @@ section {
   overflow: hidden;
   padding: 0 0 0 40px;
 }
-.gnb .gnbAll {
+.gnb .btnGnbAll {
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -187,7 +197,7 @@ section {
   font-size: 1.05rem;
   line-height: 40px;
 }
-.gnb .gnbAll::before {
+.gnb .btnGnbAll::before {
   content: "\f0c9";
   color: #000;
 }
@@ -203,6 +213,66 @@ section {
   display: block;
   padding: 0 10px;
   line-height: 40px;
+}
+.popupFull.on {
+  display: block;
+}
+.popupFull {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  color: #fff;
+}
+.popupFull .popupCon {
+  overflow-y: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 1200px;
+  width: 100%;
+  height: 100%;
+  padding: 60px 20px;
+  transform: translate(-50%, -50%);
+}
+.popupFull .gnbAll a {
+  display: inline-block;
+  color: #ccc;
+}
+.popupFull .gnbAll dl {
+  position: relative;
+  padding: 10px 20px 10px 90px;
+  border-bottom: 1px solid #ccc;
+}
+.popupFull .gnbAll dl dt {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.15rem;
+  letter-spacing: -0.05em;
+}
+.popupFull .gnbAll dl dt a {
+  width: 90px;
+  height: 100%;
+  padding: 15px 10px 10px 0;
+}
+.popupFull .gnbAll dl dd {
+  display: inline-block;
+}
+.popupFull .gnbAll dl dd a {
+  padding: 5px;
+}
+.popupFull .btnIconClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.popupFull .btnIconClose::before {
+  font-size: 2rem;
 }
 
 /* footer */
@@ -391,6 +461,10 @@ button[class^="btnIcon"]::before {
 .btnIconYoutube::before {
   content: "\f167";
 }
+.btnIconClose::before {
+  content: "\f057";
+  color: #fff;
+}
 
 /* 탑으로가기 */
 body .btnIconGotoTop {
@@ -489,19 +563,11 @@ body .btnIconGotoTop {
     text-align: left;
   }
   .header .serchInner .btnIconClose {
-    overflow: hidden;
     position: absolute;
     right: 15px;
     bottom: 12px;
     height: 30px;
     width: 30px;
-    color: transparent;
-    font-size: 1.2rem;
-    line-height: 30px;
-  }
-  .btnIconClose::before {
-    content: "\f057";
-    color: #fff;
   }
 }
 @media all and (min-width: 801px) {
@@ -544,6 +610,19 @@ body .btnIconGotoTop {
     top: 0;
     right: 0;
     padding: 20px;
+  }
+  .popupFull .popupCon {
+    height: auto;
+    padding-top: 40;
+  }
+  .popupFull .gnbAll dl {
+    padding-left: 150px;
+  }
+  .popupFull .gnbAll dl dt a {
+    width: 150px;
+  }
+  .popupFull .btnIconClose {
+    top: 0px;
   }
 
   footer .infoMenu > ul {
