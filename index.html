@@ -309,38 +309,47 @@
         <a href="#" class="btnMore">전체 클래스 보기</a>
       </section>
       <div class="banner bannerSlide">
-        <ul>
-          <li>
-            <a href="#">
-              <img src="./assets/images/banner/banner_02.jpg" alt="">
-              <div class="bannerTxt">
-                <strong class="tit">BEST 클래스가 1 + 1</strong>
-                <p>인기 클래스를 모아 무려 53% 할인</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="./assets/images/banner/banner_03.jpg" alt="">
-              <div class="bannerTxt">
-                <strong class="tit">BEST 클래스가 1 + 1</strong>
-                <p>인기 클래스를 모아 무려 53% 할인</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="./assets/images/banner/banner_01.jpg" alt="">
-              <div class="bannerTxt">
-                <strong class="tit">사이 좋게 3만원 할인</strong>
-                <p>원하는 클래스 친구와 함께!</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <div class="btnTurnSet">
-          <button type="button" class="btnIconPrev">이전으로 가기</button>
-          <button type="button" class="btnIconNext">다음으로 가기</button>
+        <div class="control">
+          <div class="btnTurnSet">
+            <button type="button" class="btnIconPrev">이전으로 가기</button>
+            <button type="button" class="btnIconNext">다음으로 가기</button>
+          </div>
+          <ul class="pagingDot">
+            <li><a href="#banner1">BEST 클래스 1+1</a></li>
+            <li><a href="#banner2">오늘의 클래스, 만원의 행복!</a></li>
+            <li><a href="#banner3">사이 좋게 3만원 할인</a></li>
+          </ul>
+        </div>
+        <div class="list">
+          <ul>
+            <li>
+              <a href="#;" id="banner1">
+                <img src="./assets/images/banner/banner_02.jpg" alt="">
+                <div class="bannerTxt">
+                  <strong class="tit">BEST 클래스가 1 + 1</strong>
+                  <p>인기 클래스를 모아 무려 53% 할인</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#;" id="banner2">
+                <img src="./assets/images/banner/banner_03.jpg" alt="">
+                <div class="bannerTxt">
+                  <strong class="tit">오늘의 클래스, 만원의 행복!</strong>
+                  <p>오늘의 클래스를 만원에 즐기세요!</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#;" id="banner3">
+                <img src="./assets/images/banner/banner_01.jpg" alt="">
+                <div class="bannerTxt">
+                  <strong class="tit">사이 좋게 3만원 할인</strong>
+                  <p>원하는 클래스 친구와 함께!</p>
+                </div>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
       <section>
@@ -349,6 +358,10 @@
           <p>오픈 예정인 클래스를 응원하면 얼리버드 오픈 시 알려드려요!</p>
         </div>
         <div class="productList listSlide">
+          <div class="btnTurnSet">
+            <button type="button" class="btnIconPrev">이전으로 가기</button>
+            <button type="button" class="btnIconNext">다음으로 가기</button>
+          </div>
           <ul>
             <li>
               <div class="item">
@@ -495,10 +508,6 @@
               </div>
             </li>
           </ul>
-          <div class="btnTurnSet">
-            <button type="button" class="btnIconPrev">이전으로 가기</button>
-            <button type="button" class="btnIconNext">다음으로 가기</button>
-          </div>
         </div>
         <div class="banner">
           <a href="#">
@@ -549,7 +558,7 @@
     </footer>
   </div>
 
-  <div class="popupFull" role="dialog" aria-labelledby="gnbTitle" aria-modal="true">
+  <div class="popupFull" role="dialog" aria-labelledby="popupTitle" aria-modal="true">
     <div class="popupCon">
       <strong id="popupTitle" class="hide">전체 메뉴</strong>
       <div class="gnbAll">

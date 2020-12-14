@@ -18,6 +18,7 @@ let autoStart;
 
 let btnTurnSet = document.querySelectorAll('.btnTurnSet');
 let listSlideBtnSet = document.querySelectorAll('.listSlide .btnTurnSet');
+let bannerSlideBtnSet = document.querySelectorAll('.bannerSlide .btnTurnSet');
 
 let serchBox = document.querySelector('.serchBox');
 
@@ -230,7 +231,7 @@ for (let i = 0; bannerSlides.length > i; i++) {
     let setbtnIconPrev = bannerSlides[i].querySelector('.btnIconPrev');
     setbtnIconPrev.classList.add('off');
 
-    bannerSlides[i].addEventListener('click', onBannerSlides);
+    bannerSlideBtnSet[i].addEventListener('click', onBannerSlides);
 }
 // function bannerSlidesCount(){
 //     let slideCount = bannerSlides.length;
@@ -240,10 +241,10 @@ for (let i = 0; bannerSlides.length > i; i++) {
 // }
 function onBannerSlides(e) {
     let clickTarget = e.target;
-    let topParent = clickTarget.parentNode.parentNode;
+    let topParent = clickTarget.parentNode.parentNode.parentNode;
     let targetClass = clickTarget.getAttribute('class');
-    let targrtUl = topParent.querySelector('ul');
-    let targrtLi = topParent.querySelector('ul li');
+    let targrtUl = topParent.querySelector('.list ul');
+    let targrtLi = topParent.querySelector('.list li');
     let targrtUlwidth = targrtUl.querySelectorAll('li');
     let widthLi = targrtLi.offsetWidth;
     let widthLiAll = widthLi * targrtUlwidth.length;

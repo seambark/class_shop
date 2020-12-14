@@ -28,17 +28,16 @@
 .mainSlide ul li.on a {
   right: 0;
   opacity: 1;
-  transition: all 0.7s;
 }
 .mainSlide ul li a {
   display: block;
   position: absolute;
   top: 0;
-  right: -100%;
-  width: 100%;
+  right: -100px;
   height: 100%;
   padding: 40px 20px 60px;
   opacity: 0;
+  transition: all 0.7s;
 }
 .mainSlide .slideImg {
   overflow: hidden;
@@ -348,7 +347,8 @@ section .banner {
   position: relative;
   margin: 0 -20px 0;
 }
-.banner a {
+.banner > a,
+.banner .list li > a {
   overflow: hidden;
   display: block;
   position: relative;
@@ -385,27 +385,63 @@ section .banner {
   margin-top: 5px;
   font-size: 0.9rem;
 }
-.banner.bannerSlide ul {
+.banner.bannerSlide .list {
+  overflow: hidden;
+}
+.banner.bannerSlide .list ul {
   white-space: nowrap;
   font-size: 0;
 }
-.banner.bannerSlide li {
+.banner.bannerSlide .list li {
   display: inline-block;
   position: relative;
   width: 100%;
   vertical-align: top;
 }
-.banner.bannerSlide li a {
+.banner.bannerSlide .list li a {
   height: 150px;
 }
-.banner.bannerSlide li .bannerTxt {
+.banner.bannerSlide .list li .bannerTxt {
   width: calc(100% - 100px);
   color: #fff;
   white-space: initial;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
 }
+.banner.bannerSlide .control .pagingDot {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+  font-size: 0;
+  text-align: center;
+  line-height: 0;
+  z-index: 10;
+}
+.banner.bannerSlide .control .pagingDot li {
+  display: inline-block;
+
+  vertical-align: top;
+}
+.banner.bannerSlide .control .pagingDot li a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  padding: 5px;
+  color: transparent;
+}
+.banner.bannerSlide .control .pagingDot li a::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.banner.bannerSlide .control .pagingDot li.on a::before {
+  background-color: #fff;
+}
 .listSlide ul,
-.bannerSlide ul {
+.bannerSlide .list ul {
   transform: translateX(0);
   transition: all 0.7s;
 }
